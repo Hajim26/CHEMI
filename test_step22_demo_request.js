@@ -1,0 +1,37 @@
+// A synthetic candidate must only create a session-scoped mock record, never a network request.
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync(__dirname+'/index.html','utf8');
+const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+const start=script.indexOf('      let memberDialogContext = null;');
+const end=script.indexOf('      function closeMemberProfile()',start);
+assert(start>=0&&end>start);
+const snippet=script.slice(start,end);
+assert(!snippet.includes("'/api/team/request'"),'mock branch must not contain a backend endpoint');
+const entries=new Map();
+const sessionStorage={getItem:k=>entries.has(k)?entries.get(k):null,setItem:(k,v)=>entries.set(k,String(v))};
+let confirmationCount=0,views=0;
+const feedback={textContent:'',classList:{remove(){}}};
+const $=()=>feedback;
+const contestMatchKey=c=>String(c.id);
+const confirm=()=>{confirmationCount++;return true;};
+const factory=Function('$','contestMatchKey','confirm','sessionStorage','renderMatchRequests',snippet+
+ ';return {sendDemoInvitation,demoInvitationExists,setDemoRequestOwner,records:()=>demoSentRequests};');
+const create=()=>factory($,contestMatchKey,confirm,sessionStorage,()=>views++);
+const m={id:'TM090',nickname:'가상 학생 A',is_synthetic:true};
+const c={id:'notice-34',title:'공모전 A'};
+const browserA=create();browserA.setDemoRequestOwner('accountA');
+assert.strictEqual(browserA.sendDemoInvitation(m,c,{disabled:false,textContent:''},'함께해요'),true);
+assert.strictEqual(browserA.demoInvitationExists(m,c),true);
+assert.strictEqual(browserA.records().length,1);
+assert.strictEqual(browserA.records()[0].is_demo,true);
+assert.strictEqual(browserA.records()[0].status,'demo');
+assert.strictEqual(browserA.records()[0].message,'함께해요');
+assert.strictEqual(browserA.sendDemoInvitation(m,c,{disabled:false}),false,'same synthetic member and contest must not duplicate');
+assert.strictEqual(confirmationCount,1);
+assert.strictEqual(views,1);
+const nextPage=create();nextPage.setDemoRequestOwner('accountA');
+assert.strictEqual(nextPage.records().length,1,'same browser tab/account can restore mock requests');
+nextPage.setDemoRequestOwner('accountB');
+assert.strictEqual(nextPage.records().length,0,'mock records are isolated by account');
+assert.throws(()=>nextPage.sendDemoInvitation({...m,is_synthetic:false},c),/가상 인물/);
+console.log('Step 22 synthetic request: session only, duplicate prevention, account isolation, no backend endpoint PASSED');

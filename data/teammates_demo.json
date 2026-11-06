@@ -1,0 +1,2938 @@
+[
+  {
+    "id": "TM001",
+    "nickname": "김하린",
+    "university": "강원대학교",
+    "major": "디자인학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm001@example.com",
+    "bio": "사용자 흐름을 설계하고 화면을 구체화하는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "UI/UX 디자인",
+        "category": "디자인"
+      },
+      {
+        "name": "Figma 프로토타이핑",
+        "category": "디자인"
+      },
+      {
+        "name": "사용자 리서치",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM002",
+    "nickname": "박도윤",
+    "university": "강원대학교",
+    "major": "AI소프트웨어학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm002@example.com",
+    "bio": "작동하는 기능을 빠르게 만드는 백엔드 개발을 선호해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Python 백엔드 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "API 연동",
+        "category": "AI·개발"
+      },
+      {
+        "name": "SQLite 데이터베이스",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM003",
+    "nickname": "이하늘",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm003@example.com",
+    "bio": "아이디어를 설득력 있는 발표로 전달하는 일을 즐겨요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "서비스 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "발표 및 피칭",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "시장 조사",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM004",
+    "nickname": "최서연",
+    "university": "강원대학교",
+    "major": "시각디자인학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm004@example.com",
+    "bio": "기획 내용을 시각 자료로 표현하는 데 강점이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "그래픽 디자인",
+        "category": "디자인"
+      },
+      {
+        "name": "포스터 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "브랜딩",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM005",
+    "nickname": "정민재",
+    "university": "강원대학교",
+    "major": "전기전자공학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm005@example.com",
+    "bio": "센서와 장치를 다루는 시제품 제작에 관심이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "아두이노 IoT 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "전자회로 설계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "하드웨어 프로토타입",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM006",
+    "nickname": "윤지후",
+    "university": "강원대학교",
+    "major": "데이터사이언스학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm006@example.com",
+    "bio": "수집한 정보를 정리하고 인사이트를 찾는 것을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "SQL 데이터베이스",
+        "category": "AI·개발"
+      },
+      {
+        "name": "데이터 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM007",
+    "nickname": "한지민",
+    "university": "강원대학교",
+    "major": "사회복지학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm007@example.com",
+    "bio": "현장에서 사용자 의견을 듣고 문제를 정의하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "현장 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "인터뷰 진행",
+        "category": "지역·사회"
+      },
+      {
+        "name": "사회문제 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM008",
+    "nickname": "송현우",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm008@example.com",
+    "bio": "사용자가 실제로 만지는 웹 인터페이스를 구현해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "프론트엔드 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "React 웹앱 제작",
+        "category": "AI·개발"
+      },
+      {
+        "name": "웹 접근성",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM009",
+    "nickname": "오수빈",
+    "university": "강원대학교",
+    "major": "행정학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm009@example.com",
+    "bio": "정책과 공공문제에 필요한 근거 자료를 찾는 일을 해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "정책 자료 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "공공서비스 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "보고서 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM010",
+    "nickname": "강예린",
+    "university": "강원대학교",
+    "major": "미디어커뮤니케이션학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm010@example.com",
+    "bio": "프로젝트를 알기 쉬운 이야기와 영상으로 만드는 것을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "영상 편집",
+        "category": "디자인"
+      },
+      {
+        "name": "SNS 콘텐츠 홍보",
+        "category": "디자인"
+      },
+      {
+        "name": "대외 발표",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM011",
+    "nickname": "서지안",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "1학년",
+    "campus": "삼척",
+    "email": "tm011@example.com",
+    "bio": "팀의 백엔드 API를 안정적으로 구현하고 문서화하는 역할을 선호해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Java 백엔드 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "REST API 설계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "기술 문서 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM012",
+    "nickname": "김도현",
+    "university": "강원대학교",
+    "major": "AI소프트웨어학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm012@example.com",
+    "bio": "분류 모델을 만들고 정확도를 비교하는 실험을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "PyTorch 모델 구현",
+        "category": "AI·개발"
+      },
+      {
+        "name": "모델 성능 평가",
+        "category": "AI·개발"
+      },
+      {
+        "name": "실험 설계",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM013",
+    "nickname": "박채윤",
+    "university": "강원대학교",
+    "major": "소프트웨어학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm013@example.com",
+    "bio": "여러 기기에서 작동하는 앱 시제품을 빠르게 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Flutter 앱 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "모바일 인터페이스 설계",
+        "category": "디자인"
+      },
+      {
+        "name": "Firebase 연동",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM014",
+    "nickname": "이준서",
+    "university": "강원대학교",
+    "major": "컴퓨터정보통신공학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm014@example.com",
+    "bio": "네트워크 연결 문제를 분석하고 원인을 찾아 해결하는 데 관심이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "네트워크 프로그래밍",
+        "category": "AI·개발"
+      },
+      {
+        "name": "TCP/IP 통신",
+        "category": "AI·개발"
+      },
+      {
+        "name": "서버 디버깅",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM015",
+    "nickname": "최유진",
+    "university": "강원대학교",
+    "major": "정보통신공학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm015@example.com",
+    "bio": "사용자가 동시에 참여할 수 있는 실시간 서비스를 개발해 보고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "웹소켓 통신",
+        "category": "AI·개발"
+      },
+      {
+        "name": "실시간 협업 기능",
+        "category": "AI·개발"
+      },
+      {
+        "name": "요구사항 정의",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM016",
+    "nickname": "정서우",
+    "university": "강원대학교",
+    "major": "AI융합학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm016@example.com",
+    "bio": "문장을 분석하는 AI 기능을 사용자 문제 해결에 연결하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "자연어 처리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "텍스트 분류",
+        "category": "AI·개발"
+      },
+      {
+        "name": "AI 서비스 기획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM017",
+    "nickname": "강태윤",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm017@example.com",
+    "bio": "복잡한 기능도 사용자가 쉽게 접근할 수 있는 화면을 만들어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "React 프론트엔드 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "웹 접근성",
+        "category": "디자인"
+      },
+      {
+        "name": "TypeScript",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM018",
+    "nickname": "윤아린",
+    "university": "강원대학교",
+    "major": "AI소프트웨어학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm018@example.com",
+    "bio": "빠르고 정확한 알고리즘을 구현하고 성능을 측정하는 데 흥미가 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "알고리즘 최적화",
+        "category": "AI·개발"
+      },
+      {
+        "name": "C++ 자료구조",
+        "category": "AI·개발"
+      },
+      {
+        "name": "성능 실험",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM019",
+    "nickname": "임재혁",
+    "university": "강원대학교",
+    "major": "소프트웨어학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm019@example.com",
+    "bio": "안드로이드 기기에서 사용하기 편한 생활형 앱을 개발하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Android Kotlin 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "모바일 UX",
+        "category": "디자인"
+      },
+      {
+        "name": "로컬 데이터 저장",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM020",
+    "nickname": "조은서",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm020@example.com",
+    "bio": "반복 작업을 자동화하고 기능별 테스트를 체계화하는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Python 자동화",
+        "category": "AI·개발"
+      },
+      {
+        "name": "테스트 코드 작성",
+        "category": "AI·개발"
+      },
+      {
+        "name": "작업 일정 관리",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM021",
+    "nickname": "한서준",
+    "university": "강원대학교",
+    "major": "데이터사이언스학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm021@example.com",
+    "bio": "복잡한 원천 데이터를 정리해 이해하기 쉬운 지표로 만들어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "SQL 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "데이터 정제",
+        "category": "AI·개발"
+      },
+      {
+        "name": "대시보드 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM022",
+    "nickname": "오가은",
+    "university": "강원대학교",
+    "major": "통계학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm022@example.com",
+    "bio": "데이터에서 나온 결과가 우연인지 검증하는 일을 선호해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "통계적 가설 검정",
+        "category": "AI·개발"
+      },
+      {
+        "name": "회귀 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "실험 결과 해석",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM023",
+    "nickname": "신지호",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm023@example.com",
+    "bio": "시제품을 실제 웹서버로 배포하고 운영 절차를 정리하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "클라우드 서비스 배포",
+        "category": "AI·개발"
+      },
+      {
+        "name": "Docker 컨테이너",
+        "category": "AI·개발"
+      },
+      {
+        "name": "배포 운영 문서",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM024",
+    "nickname": "문하윤",
+    "university": "강원대학교",
+    "major": "정보보호학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm024@example.com",
+    "bio": "로그인과 데이터 접근 권한이 안전한지 검토하는 역할을 맡고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "웹 보안 점검",
+        "category": "AI·개발"
+      },
+      {
+        "name": "인증 권한 검토",
+        "category": "AI·개발"
+      },
+      {
+        "name": "보안 위험 설명",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM025",
+    "nickname": "권민서",
+    "university": "강원대학교",
+    "major": "데이터사이언스학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm025@example.com",
+    "bio": "기상·환경 데이터를 분석해 위험을 예측하는 프로젝트에 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "시계열 예측",
+        "category": "AI·개발"
+      },
+      {
+        "name": "Python 데이터 처리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "기상 자료 분석",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM026",
+    "nickname": "배현준",
+    "university": "강원대학교",
+    "major": "산업공학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm026@example.com",
+    "bio": "제약조건 속에서 합리적인 자원 배분 방법을 찾는 일이 재미있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "최적화 모델링",
+        "category": "AI·개발"
+      },
+      {
+        "name": "운영 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "업무 프로세스 개선",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM027",
+    "nickname": "류다은",
+    "university": "강원대학교",
+    "major": "수학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm027@example.com",
+    "bio": "수학적 근거가 분명한 해결 방법을 세우는 것을 선호해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "수치 계산",
+        "category": "AI·개발"
+      },
+      {
+        "name": "기계학습 수학",
+        "category": "AI·개발"
+      },
+      {
+        "name": "문제 모델링",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM028",
+    "nickname": "고시우",
+    "university": "강원대학교",
+    "major": "정보통계학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm028@example.com",
+    "bio": "설문 결과를 신뢰성 있게 분석해 인사이트를 정리하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "설문 응답 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "조사 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "정보 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM029",
+    "nickname": "차예진",
+    "university": "강원대학교",
+    "major": "컴퓨터공학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm029@example.com",
+    "bio": "여러 출처의 자료를 안정적으로 수집하고 통합하는 데 관심이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "데이터 파이프라인",
+        "category": "AI·개발"
+      },
+      {
+        "name": "ETL 설계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "PostgreSQL 데이터베이스",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM030",
+    "nickname": "서준혁",
+    "university": "강원대학교",
+    "major": "AI융합학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm030@example.com",
+    "bio": "현장 사진을 활용한 문제 인식과 영상 AI를 시도하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "컴퓨터 비전",
+        "category": "AI·개발"
+      },
+      {
+        "name": "이미지 분류",
+        "category": "AI·개발"
+      },
+      {
+        "name": "현장 이미지 분석",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM031",
+    "nickname": "김다현",
+    "university": "강원대학교",
+    "major": "시각디자인학과",
+    "grade": "3학년",
+    "campus": "춘천",
+    "email": "tm031@example.com",
+    "bio": "일관된 디자인 시스템을 만들고 팀과 공유하는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "Figma 디자인 시스템",
+        "category": "디자인"
+      },
+      {
+        "name": "UI 컴포넌트 설계",
+        "category": "디자인"
+      },
+      {
+        "name": "사용자 요구 분석",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM032",
+    "nickname": "박서현",
+    "university": "강원대학교",
+    "major": "디자인학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm032@example.com",
+    "bio": "사용자가 어려움을 겪는 순간을 찾아 화면을 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "사용자 여정 지도",
+        "category": "디자인"
+      },
+      {
+        "name": "와이어프레임 설계",
+        "category": "디자인"
+      },
+      {
+        "name": "인터뷰 질문 설계",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM033",
+    "nickname": "이지안",
+    "university": "강원대학교",
+    "major": "산업디자인학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm033@example.com",
+    "bio": "아이디어를 손에 잡히는 시제품으로 표현하는 일을 선호해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "제품 3D 모델링",
+        "category": "디자인"
+      },
+      {
+        "name": "목업 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "시제품 테스트",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM034",
+    "nickname": "최지민",
+    "university": "강원대학교",
+    "major": "시각디자인학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm034@example.com",
+    "bio": "정보가 눈에 잘 들어오는 포스터와 발표 자료를 디자인해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "타이포그래피",
+        "category": "디자인"
+      },
+      {
+        "name": "포스터 레이아웃",
+        "category": "디자인"
+      },
+      {
+        "name": "행사 콘셉트 기획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM035",
+    "nickname": "정수아",
+    "university": "강원대학교",
+    "major": "미술학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm035@example.com",
+    "bio": "서비스의 특징이 드러나는 캐릭터와 시각 언어를 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "일러스트레이션",
+        "category": "디자인"
+      },
+      {
+        "name": "캐릭터 디자인",
+        "category": "디자인"
+      },
+      {
+        "name": "브랜드 스토리텔링",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM036",
+    "nickname": "강지훈",
+    "university": "강원대학교",
+    "major": "디자인학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm036@example.com",
+    "bio": "작은 화면에서도 편리한 UI를 구현하는 것에 관심이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "반응형 웹디자인",
+        "category": "디자인"
+      },
+      {
+        "name": "모바일 인터페이스",
+        "category": "디자인"
+      },
+      {
+        "name": "HTML CSS 구현",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM037",
+    "nickname": "윤서진",
+    "university": "강원대학교",
+    "major": "산업디자인학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm037@example.com",
+    "bio": "서비스가 운영되는 전 과정을 시각적으로 설계하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "서비스 블루프린트",
+        "category": "디자인"
+      },
+      {
+        "name": "사용자 관찰",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "프로토타입 평가",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM038",
+    "nickname": "임다윤",
+    "university": "강원대학교",
+    "major": "시각디자인학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm038@example.com",
+    "bio": "복잡한 데이터나 규칙을 직관적인 그림으로 전달하는 데 강점이 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "인포그래픽 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "데이터 시각화",
+        "category": "AI·개발"
+      },
+      {
+        "name": "정보 구조 설계",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM039",
+    "nickname": "조현서",
+    "university": "강원대학교",
+    "major": "디자인학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm039@example.com",
+    "bio": "다양한 사용자가 편하게 쓸 수 있는 서비스를 만드는 것이 목표예요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "접근성 중심 UX",
+        "category": "디자인"
+      },
+      {
+        "name": "사용성 테스트",
+        "category": "디자인"
+      },
+      {
+        "name": "다양한 사용자 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM040",
+    "nickname": "한도겸",
+    "university": "강원대학교",
+    "major": "미디어디자인학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm040@example.com",
+    "bio": "제품에 자연스러운 움직임을 추가해 경험을 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "모션 그래픽",
+        "category": "디자인"
+      },
+      {
+        "name": "인터랙션 애니메이션",
+        "category": "디자인"
+      },
+      {
+        "name": "웹 화면 구현",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM041",
+    "nickname": "오하린",
+    "university": "강원대학교",
+    "major": "미디어커뮤니케이션학과",
+    "grade": "2학년",
+    "campus": "삼척",
+    "email": "tm041@example.com",
+    "bio": "복잡한 프로젝트 내용을 짧은 영상으로 쉽게 설명하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "홍보 영상 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "영상 스토리보드",
+        "category": "디자인"
+      },
+      {
+        "name": "홍보 전략 수립",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM042",
+    "nickname": "신예준",
+    "university": "강원대학교",
+    "major": "영상문화학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm042@example.com",
+    "bio": "현장 촬영부터 편집까지 영상 제작 과정을 함께하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "촬영 및 조명",
+        "category": "디자인"
+      },
+      {
+        "name": "영상 편집",
+        "category": "디자인"
+      },
+      {
+        "name": "콘텐츠 구성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM043",
+    "nickname": "문서연",
+    "university": "강원대학교",
+    "major": "국어국문학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm043@example.com",
+    "bio": "사람들이 공감할 수 있는 언어로 아이디어를 전달해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "스토리텔링",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "카피라이팅",
+        "category": "디자인"
+      },
+      {
+        "name": "콘텐츠 구조화",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM044",
+    "nickname": "권세현",
+    "university": "강원대학교",
+    "major": "미디어커뮤니케이션학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm044@example.com",
+    "bio": "콘텐츠를 제작하고 반응 데이터를 보며 개선하는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "소셜 미디어 콘텐츠",
+        "category": "디자인"
+      },
+      {
+        "name": "캠페인 운영",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "콘텐츠 성과 분석",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM045",
+    "nickname": "배지우",
+    "university": "강원대학교",
+    "major": "문화콘텐츠학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm045@example.com",
+    "bio": "지역의 문화 자원을 흥미로운 행사로 연결하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "문화행사 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "포스터 콘텐츠",
+        "category": "디자인"
+      },
+      {
+        "name": "지역 문화 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM046",
+    "nickname": "류채은",
+    "university": "강원대학교",
+    "major": "방송영상학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm046@example.com",
+    "bio": "현장의 목소리를 기록하고 전달하는 영상을 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "인터뷰 영상 편집",
+        "category": "디자인"
+      },
+      {
+        "name": "현장 취재",
+        "category": "지역·사회"
+      },
+      {
+        "name": "메시지 구성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM047",
+    "nickname": "고준우",
+    "university": "강원대학교",
+    "major": "미디어디자인학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm047@example.com",
+    "bio": "디지털 채널의 인상을 좌우하는 시각물을 만드는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "썸네일 디자인",
+        "category": "디자인"
+      },
+      {
+        "name": "브랜드 시각물",
+        "category": "디자인"
+      },
+      {
+        "name": "채널 운영",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM048",
+    "nickname": "차민지",
+    "university": "강원대학교",
+    "major": "신문방송학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm048@example.com",
+    "bio": "근거가 있는 메시지로 프로젝트 가치를 알리고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "대외 홍보 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "취재 인터뷰",
+        "category": "지역·사회"
+      },
+      {
+        "name": "홍보 글 작성",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "지역·사회",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM049",
+    "nickname": "서윤재",
+    "university": "강원대학교",
+    "major": "영어영문학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm049@example.com",
+    "bio": "해외 자료를 찾아 팀의 아이디어를 영어로 소개하는 일을 해보고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "영문 발표",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "영문 홍보 문구",
+        "category": "디자인"
+      },
+      {
+        "name": "해외 자료 조사",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM050",
+    "nickname": "김유나",
+    "university": "강원대학교",
+    "major": "문화콘텐츠학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm050@example.com",
+    "bio": "지역 이야기를 체험형 콘텐츠로 전달하는 프로젝트에 참여하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "전시 콘텐츠 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "콘셉트 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "지역 스토리 발굴",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM051",
+    "nickname": "박지원",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm051@example.com",
+    "bio": "아이디어가 지속 가능한 서비스가 되도록 사업 구조를 고민해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "비즈니스 모델 수립",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "시장 규모 조사",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "지표 분석",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM052",
+    "nickname": "이도경",
+    "university": "강원대학교",
+    "major": "경제학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm052@example.com",
+    "bio": "대안을 비교할 때 비용과 효과를 수치로 검토하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "비용 편익 분석",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "경제 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "제안서 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM053",
+    "nickname": "최다연",
+    "university": "강원대학교",
+    "major": "경영정보학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm053@example.com",
+    "bio": "구현할 기능의 우선순위를 정하고 일정 관리하는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "서비스 요구사항 정리",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "업무 시스템 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "프로젝트 일정 관리",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM054",
+    "nickname": "정지환",
+    "university": "강원대학교",
+    "major": "회계학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm054@example.com",
+    "bio": "실행 계획에 필요한 비용을 구체적으로 계산하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "예산 편성",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "원가 계산",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "엑셀 데이터 분석",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM055",
+    "nickname": "강소연",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm055@example.com",
+    "bio": "누구에게 가장 도움이 되는 서비스인지 분석하는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "고객 세분화",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "서비스 운영 전략",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "현장 수요 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM056",
+    "nickname": "윤주원",
+    "university": "강원대학교",
+    "major": "경제학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm056@example.com",
+    "bio": "지역경제 관련 자료를 읽고 개선 효과를 평가하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "공공 통계 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "정책 효과 평가",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "지역경제 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM057",
+    "nickname": "임채원",
+    "university": "강원대학교",
+    "major": "관광경영학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm057@example.com",
+    "bio": "관광객이 겪는 불편을 조사하고 서비스로 해결하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "관광 서비스 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "관광객 동선 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "안내 콘텐츠 설계",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "지역·사회",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM058",
+    "nickname": "조민준",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm058@example.com",
+    "bio": "사업 아이디어의 핵심을 간결한 발표로 설명하는 일을 잘하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "스타트업 피치덱",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "수익 모델 검토",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "발표자료 디자인",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM059",
+    "nickname": "한혜린",
+    "university": "강원대학교",
+    "major": "무역학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm059@example.com",
+    "bio": "기관과 기업이 함께 참여할 수 있는 협력 프로젝트를 기획하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "산업 동향 조사",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "외부 협력 제안",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "지역기업 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM060",
+    "nickname": "오태연",
+    "university": "강원대학교",
+    "major": "경영정보학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm060@example.com",
+    "bio": "일하는 방식의 불편함을 찾아 도구로 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "업무 자동화",
+        "category": "AI·개발"
+      },
+      {
+        "name": "업무 흐름 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "이해관계자 소통",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM061",
+    "nickname": "신다인",
+    "university": "강원대학교",
+    "major": "언론정보학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm061@example.com",
+    "bio": "짧은 시간 안에 핵심 메시지를 전달하는 발표를 연습하고 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "대중 발표",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "발표 스크립트 작성",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "슬라이드 구성",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM062",
+    "nickname": "문도윤",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm062@example.com",
+    "bio": "평가 기준을 파악해 설득력 있는 제안서를 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "공모전 제안서 작성",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "아이디어 피칭",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "도식화 제작",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM063",
+    "nickname": "권하율",
+    "university": "강원대학교",
+    "major": "광고홍보학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm063@example.com",
+    "bio": "아이디어의 장점을 대상 사용자에게 정확히 알리고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "마케팅 캠페인",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "브랜드 메시지 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "디지털 광고 디자인",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM064",
+    "nickname": "배예린",
+    "university": "강원대학교",
+    "major": "심리학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm064@example.com",
+    "bio": "사람들이 왜 특정 행동을 하는지 조사하는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "사용자 심층 인터뷰",
+        "category": "지역·사회"
+      },
+      {
+        "name": "설문 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "행동 인사이트 정리",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM065",
+    "nickname": "류하람",
+    "university": "강원대학교",
+    "major": "교육학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm065@example.com",
+    "bio": "배우기 쉬운 안내 자료를 만들어 프로젝트의 활용도를 높이고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "교육 콘텐츠 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "학습 자료 제작",
+        "category": "디자인"
+      },
+      {
+        "name": "학습자 요구 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM066",
+    "nickname": "고은찬",
+    "university": "강원대학교",
+    "major": "영어교육과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm066@example.com",
+    "bio": "영어 발표나 해외 자료가 필요한 팀에 기여하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "국제 발표",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "영문 문서 작성",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "발표자료 교정",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM067",
+    "nickname": "차현지",
+    "university": "강원대학교",
+    "major": "신문방송학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm067@example.com",
+    "bio": "시연 흐름을 설득력 있는 발표 스토리로 바꾸고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "프레젠테이션 코칭",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "영상 시연 구성",
+        "category": "디자인"
+      },
+      {
+        "name": "스토리 구조 설계",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM068",
+    "nickname": "서지훈",
+    "university": "강원대학교",
+    "major": "광고홍보학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm068@example.com",
+    "bio": "홍보 결과를 데이터로 확인하고 다음 전략을 개선하는 일을 좋아해요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "SNS 홍보 전략",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "캠페인 성과 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "홍보 콘텐츠 편집",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM069",
+    "nickname": "김예은",
+    "university": "강원대학교",
+    "major": "교육학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm069@example.com",
+    "bio": "서로 다른 의견을 모아 팀이 함께 결정하도록 돕고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "워크숍 운영",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "회의 진행",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "참여자 피드백 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM070",
+    "nickname": "박태하",
+    "university": "강원대학교",
+    "major": "경영학과",
+    "grade": "3학년",
+    "campus": "도계",
+    "email": "tm070@example.com",
+    "bio": "다양한 역할을 조율해 마감일까지 결과물을 만드는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "협업 일정 관리",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "팀 커뮤니케이션",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "최종 발표 조율",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM071",
+    "nickname": "이채원",
+    "university": "강원대학교",
+    "major": "행정학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm071@example.com",
+    "bio": "지역 주민이 체감할 수 있는 정책 아이디어를 제안하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "공공정책 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "행정 자료 분석",
+        "category": "지역·사회"
+      },
+      {
+        "name": "정책 제안서 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM072",
+    "nickname": "최지우",
+    "university": "강원대학교",
+    "major": "사회복지학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm072@example.com",
+    "bio": "생활 속 불편을 직접 듣고 현실적인 개선안을 찾고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "취약계층 인터뷰",
+        "category": "지역·사회"
+      },
+      {
+        "name": "복지 서비스 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "현장 요구 정리",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM073",
+    "nickname": "정하린",
+    "university": "강원대학교",
+    "major": "사회학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm073@example.com",
+    "bio": "사회 현상을 데이터와 인터뷰로 함께 분석하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "사회문제 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "설문 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "사회통계 분석",
+        "category": "AI·개발"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어",
+      "AI·개발"
+    ]
+  },
+  {
+    "id": "TM074",
+    "nickname": "강민재",
+    "university": "강원대학교",
+    "major": "지리학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm074@example.com",
+    "bio": "지도를 활용해 지역 접근성과 시설 배치를 분석하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "지역 공간 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "GIS 지도 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "공간 문제 정의",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM075",
+    "nickname": "윤시은",
+    "university": "강원대학교",
+    "major": "정치외교학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm075@example.com",
+    "bio": "다양한 이해관계자의 관점을 비교해 해결책을 제안하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "정책 사례 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "이해관계자 분석",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "공공 제안 발표",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM076",
+    "nickname": "임준호",
+    "university": "강원대학교",
+    "major": "문화인류학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm076@example.com",
+    "bio": "현장의 맥락을 충분히 듣고 문제를 이해하는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "참여 관찰",
+        "category": "지역·사회"
+      },
+      {
+        "name": "현장 인터뷰",
+        "category": "지역·사회"
+      },
+      {
+        "name": "정성자료 분석",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM077",
+    "nickname": "조수연",
+    "university": "강원대학교",
+    "major": "관광학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm077@example.com",
+    "bio": "지역을 방문하는 사람이 겪는 이동 불편을 줄이고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "관광지 현장 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "관광 동선 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "방문자 안내 디자인",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM078",
+    "nickname": "한지율",
+    "university": "강원대학교",
+    "major": "사회복지학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm078@example.com",
+    "bio": "디지털 서비스에서 소외되는 사용자를 고려하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "고령자 접근성 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "정보 접근성 평가",
+        "category": "디자인"
+      },
+      {
+        "name": "서비스 개선안 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "디자인",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM079",
+    "nickname": "오다인",
+    "university": "강원대학교",
+    "major": "행정학과",
+    "grade": "3학년",
+    "campus": "도계",
+    "email": "tm079@example.com",
+    "bio": "공공데이터를 활용해 행정 서비스를 더 편리하게 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "지자체 공공데이터",
+        "category": "지역·사회"
+      },
+      {
+        "name": "기초 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "행정 서비스 기획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM080",
+    "nickname": "신서후",
+    "university": "강원대학교",
+    "major": "지리학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm080@example.com",
+    "bio": "공간 데이터를 누구나 이해할 수 있는 지도로 표현하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "도시 환경 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "위치 데이터 정리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "지도 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM081",
+    "nickname": "문하준",
+    "university": "강원대학교",
+    "major": "그린에너지공학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm081@example.com",
+    "bio": "지역 에너지 데이터를 바탕으로 실현 가능한 방안을 찾고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "신재생에너지 현황 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "발전량 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "에너지 계획 제안",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM082",
+    "nickname": "권지안",
+    "university": "강원대학교",
+    "major": "환경공학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm082@example.com",
+    "bio": "환경문제를 정량 데이터와 현장 자료로 분석하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "수질 환경 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "환경 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "환경 개선 방안 작성",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM083",
+    "nickname": "배도현",
+    "university": "강원대학교",
+    "major": "토목공학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm083@example.com",
+    "bio": "도로 안전 문제를 조사하고 지도 기반 대책을 제시하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "도로 결빙 현장 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "위험구간 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "위험지도 제작",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM084",
+    "nickname": "류예원",
+    "university": "강원대학교",
+    "major": "기계공학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm084@example.com",
+    "bio": "작동하는 기구를 설계하고 여러 조건에서 시험해 보고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "3D CAD 설계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "시제품 구조 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "제품 테스트 계획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM085",
+    "nickname": "고윤서",
+    "university": "강원대학교",
+    "major": "전기전자공학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm085@example.com",
+    "bio": "센서를 이용해 환경 정보를 수집하는 시스템에 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "센서 회로 설계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "마이크로컨트롤러 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "환경 센서 측정",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM086",
+    "nickname": "차준혁",
+    "university": "강원대학교",
+    "major": "화학공학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm086@example.com",
+    "bio": "친환경 제조 기술의 개선 가능성을 탐구하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "친환경 공정 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "실험 데이터 정리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "공정 개선 제안",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM087",
+    "nickname": "서민아",
+    "university": "강원대학교",
+    "major": "건축공학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm087@example.com",
+    "bio": "건물 에너지를 절감할 수 있는 실용적 아이디어를 찾고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "건물 에너지 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "에너지 소비 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "건축 도면 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM088",
+    "nickname": "김수현",
+    "university": "강원대학교",
+    "major": "산림환경과학과",
+    "grade": "3학년",
+    "campus": "도계",
+    "email": "tm088@example.com",
+    "bio": "산림 재해 위험을 현장 자료와 지도로 분석하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "산림 현장 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "산불 위험 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "산림 위험지도",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM089",
+    "nickname": "박하은",
+    "university": "강원대학교",
+    "major": "전자공학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm089@example.com",
+    "bio": "현장 안전을 확인하는 작은 장치를 개발해 보고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "임베디드 C 개발",
+        "category": "AI·개발"
+      },
+      {
+        "name": "장치 통신 프로토콜",
+        "category": "AI·개발"
+      },
+      {
+        "name": "안전 모니터링",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM090",
+    "nickname": "이준영",
+    "university": "강원대학교",
+    "major": "환경에너지공학과",
+    "grade": "1학년",
+    "campus": "삼척",
+    "email": "tm090@example.com",
+    "bio": "탄소 감축 효과를 숫자로 보여주는 프로젝트에 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "탄소배출 자료 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "온실가스 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "탄소감축 제안서",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM091",
+    "nickname": "최가온",
+    "university": "강원대학교",
+    "major": "간호학과",
+    "grade": "1학년",
+    "campus": "도계",
+    "email": "tm091@example.com",
+    "bio": "누구나 이해할 수 있는 건강 정보 안내를 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "건강 정보 접근성 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "건강 안내 서비스 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "건강 콘텐츠 구성",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM092",
+    "nickname": "정다솜",
+    "university": "강원대학교",
+    "major": "식품영양학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm092@example.com",
+    "bio": "학생 식생활 데이터를 분석해 학교 생활을 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "식생활 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "영양 데이터 정리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "급식 서비스 개선",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM093",
+    "nickname": "강유빈",
+    "university": "강원대학교",
+    "major": "체육학과",
+    "grade": "3학년",
+    "campus": "삼척",
+    "email": "tm093@example.com",
+    "bio": "학생들이 운동 시설을 편리하게 쓰는 방법을 찾고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "체육시설 이용 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "체육행사 운영",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "운동 안내 콘텐츠",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM094",
+    "nickname": "윤하진",
+    "university": "강원대학교",
+    "major": "수학교육과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm094@example.com",
+    "bio": "추상적인 개념을 시각적으로 설명하는 교육 도구를 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "학습 콘텐츠 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "수학 문제 모델링",
+        "category": "AI·개발"
+      },
+      {
+        "name": "교육 시각화",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "기획·아이디어",
+      "AI·개발",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM095",
+    "nickname": "임하경",
+    "university": "강원대학교",
+    "major": "산업공학과",
+    "grade": "1학년",
+    "campus": "춘천",
+    "email": "tm095@example.com",
+    "bio": "시설과 자원 배치를 개선하는 의사결정 도구에 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "공급망 데이터 분석",
+        "category": "AI·개발"
+      },
+      {
+        "name": "운영 최적화",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "시설 현황 조사",
+        "category": "지역·사회"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어",
+      "지역·사회"
+    ]
+  },
+  {
+    "id": "TM096",
+    "nickname": "조건우",
+    "university": "강원대학교",
+    "major": "문헌정보학과",
+    "grade": "4학년",
+    "campus": "삼척",
+    "email": "tm096@example.com",
+    "bio": "필요한 자료를 빠르게 찾을 수 있는 검색 서비스를 만들고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "정보 분류 체계",
+        "category": "AI·개발"
+      },
+      {
+        "name": "검색 경험 설계",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "정보구조 디자인",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "AI·개발",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM097",
+    "nickname": "한시온",
+    "university": "강원대학교",
+    "major": "관광문화학과",
+    "grade": "3학년",
+    "campus": "도계",
+    "email": "tm097@example.com",
+    "bio": "지역 축제의 매력을 알리고 참여 경험을 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "지역축제 자료 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "축제 운영 기획",
+        "category": "기획·아이디어"
+      },
+      {
+        "name": "지역 홍보 콘텐츠",
+        "category": "디자인"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "기획·아이디어",
+      "디자인"
+    ]
+  },
+  {
+    "id": "TM098",
+    "nickname": "오나연",
+    "university": "강원대학교",
+    "major": "식품생명공학과",
+    "grade": "2학년",
+    "campus": "춘천",
+    "email": "tm098@example.com",
+    "bio": "생활 속 식품 안전을 데이터로 설명하는 데 관심 있어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "식품 안전 사례 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "실험 결과 정리",
+        "category": "AI·개발"
+      },
+      {
+        "name": "안전 관리 제안",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM099",
+    "nickname": "신채린",
+    "university": "강원대학교",
+    "major": "건축학과",
+    "grade": "1학년",
+    "campus": "삼척",
+    "email": "tm099@example.com",
+    "bio": "건물 안에서 이동하고 머무는 경험을 개선하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "공간 사용자 경험",
+        "category": "디자인"
+      },
+      {
+        "name": "시설 접근성 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "공간 활용 기획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "디자인",
+      "지역·사회",
+      "기획·아이디어"
+    ]
+  },
+  {
+    "id": "TM100",
+    "nickname": "문태원",
+    "university": "강원대학교",
+    "major": "농업경제학과",
+    "grade": "4학년",
+    "campus": "춘천",
+    "email": "tm100@example.com",
+    "bio": "지역 농업 문제를 기술과 사업 모델로 해결하고 싶어요.",
+    "is_synthetic": true,
+    "skills": [
+      {
+        "name": "농촌 현장 조사",
+        "category": "지역·사회"
+      },
+      {
+        "name": "농산물 유통 데이터",
+        "category": "AI·개발"
+      },
+      {
+        "name": "지역 농업 비즈니스 기획",
+        "category": "기획·아이디어"
+      }
+    ],
+    "interests": [
+      "지역·사회",
+      "AI·개발",
+      "기획·아이디어"
+    ]
+  }
+]

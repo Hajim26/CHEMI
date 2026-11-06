@@ -1,0 +1,2 @@
+# The CHEMI backend is built using Python 3 standard-library modules only.
+# No third-party pip packages are required by server.py.

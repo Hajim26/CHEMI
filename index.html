@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f7">
+  <title>케미 CHEMI | AI 역량 분석</title>
+  <style>
+    :root { --ink:#172c2b; --muted:#778784; --green:#179873; --deep:#117456; --lime:#d9f5b6; --line:#e1eae6; --bg:#f6f8f7; --white:#ffffff; --error:#c83f55; --focus:#1aa57d; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height:1.5; }
+    button, input, select, textarea { font:inherit; }
+    button { cursor:pointer; }
+    .shell { min-height:100svh; padding:32px; display:flex; justify-content:center; align-items:center; }
+    .page { display:grid; grid-template-columns:minmax(310px, 0.97fr) minmax(410px, 1.03fr); width:min(1110px,100%); min-height:730px; border:1px solid #edf0ec; background:white; border-radius:30px; box-shadow:0 28px 80px rgba(20,53,44,.085); overflow:hidden; }
+    .visual { background:linear-gradient(145deg,#e9f7ef 0%,#e5f4e5 53%,#d9eedf 100%); padding:37px 42px 36px; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+    .visual::before, .visual::after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .visual::before { width:450px; height:450px; border:1px solid #c0e6d3; left:-200px; bottom:-180px; }
+    .visual::after { width:270px; height:270px; border:1px solid #c0e6d3; right:-125px; top:145px; }
+    .brand { position:relative; z-index:2; display:flex; gap:10px; align-items:center; font-size:23px; font-weight:850; letter-spacing:-.055em; }
+    .brand-mark { display:flex; align-items:center; justify-content:center; width:37px; height:37px; border-radius:12px; background:var(--green); color:#fff; }
+    .visual-content { position:relative; z-index:2; margin-top:auto; margin-bottom:auto; }
+    .eyebrow { color:var(--deep); font-size:12px; font-weight:800; letter-spacing:.16em; }
+    .visual h1 { font-size:clamp(33px,3.2vw,45px); letter-spacing:-.07em; line-height:1.27; margin:17px 0; }
+    .visual h1 span { color:var(--green); }
+    .visual .lead { max-width:none; white-space:nowrap; letter-spacing:-.045em; font-size:clamp(11px,1.3vw,15px); color:#516b61; font-size:15px; line-height:1.8; margin:0; }
+    .orbit { width:min(390px,100%); height:245px; position:relative; margin:38px auto 0; }
+    .orbit-main { position:absolute; border-radius:27px; background:#fff; box-shadow:0 18px 35px rgba(32,112,80,.12); left:50%; top:48%; transform:translate(-50%,-50%) rotate(-3deg); padding:21px 24px; width:250px; }
+    .orbit-main .tiny { color:#85968e; font-size:11px; font-weight:800; }
+    .orbit-main strong { display:block; font-size:19px; letter-spacing:-.05em; margin-top:5px; }
+    .orbit-main .mini-pills { display:flex; gap:7px; margin-top:16px; }
+    .mini-pills span { font-size:11px; font-weight:700; padding:6px 10px; background:#eaf7ef; color:#167956; border-radius:999px; }
+    .floating { position:absolute; padding:11px 15px; box-shadow:0 10px 28px rgba(12,92,61,.1); background:#fff; border-radius:15px; font-weight:750; font-size:13px; }
+    .floating.one { top:7px; left:-3px; transform:rotate(-7deg); }
+    .floating.two { top:20px; right:0; transform:rotate(7deg); }
+    .floating.three { bottom:11px; left:14px; transform:rotate(-5deg); }
+    .floating.four { bottom:17px; right:-4px; transform:rotate(5deg); }
+    .floating .dot { display:inline-block; width:9px; height:9px; border-radius:50%; background:#6dd59a; margin-right:5px; }
+    .visual-footer { position:relative; z-index:2; font-size:12px; color:#678778; font-weight:600; }
+    .form-side { display:flex; flex-direction:column; justify-content:center; padding:42px clamp(32px,5vw,69px); }
+    .steps { display:flex; align-items:center; gap:9px; margin-bottom:32px; color:var(--muted); font-size:12px; font-weight:750; }
+    .steps .active { color:var(--green); }
+    .steps .line { height:1px; width:23px; background:#cfded7; }
+    .steps .muted { color:#9ba9a4; }
+    .heading h2 { font-size:clamp(26px,2.6vw,33px); line-height:1.27; letter-spacing:-.07em; margin:0 0 12px; }
+    .heading p { margin:0; color:var(--muted); font-size:14px; line-height:1.72; }
+    .profile-form { margin-top:28px; }
+    .field { margin-bottom:17px; }
+    .field label { display:flex; gap:4px; align-items:center; font-weight:750; letter-spacing:-.025em; font-size:13px; margin-bottom:8px; }
+    .field label .req { color:var(--green); }
+    .field label .optional { margin-left:4px; color:#9ba9a4; font-size:11px; font-weight:550; }
+    .field input, .field select { display:block; width:100%; height:49px; border:1px solid #dfe8e4; border-radius:11px; background:#fff; color:var(--ink); padding:0 15px; font-size:14px; outline:none; transition:border-color .15s,box-shadow .15s; }
+    .field input::placeholder { color:#abb8b2; }
+    .field select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237d938b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 15px center; padding-right:43px; }
+    .field select:invalid { color:#abb8b2; }
+    .field input:focus, .field select:focus { border-color:var(--focus); box-shadow:0 0 0 3px rgba(26,165,125,.12); }
+    .field [aria-invalid="true"] { border-color:var(--error); }
+    .field .error { font-size:11px; color:var(--error); margin:5px 0 0; min-height:0; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+    .privacy { background:#f6f9f7; display:flex; gap:10px; padding:13px 14px; border-radius:10px; color:#667b72; font-size:11.5px; line-height:1.65; margin:20px 0 19px; }
+    .privacy svg { flex-shrink:0; margin-top:1px; color:#269b76; }
+    .submit { height:53px; width:100%; border:0; border-radius:12px; background:var(--green); color:white; font-weight:800; font-size:15px; transition:background .15s,transform .15s; display:flex; align-items:center; justify-content:center; gap:9px; }
+    .submit:hover { background:var(--deep); transform:translateY(-1px); }
+    .submit:focus-visible, .secondary-btn:focus-visible { outline:3px solid #92dcc2; outline-offset:3px; }
+    .smallprint { text-align:center; color:#a0aaa6; font-size:11px; margin:16px 0 0; }
+    .experience-screen { display:none; }
+    .experience-screen.show { display:block; }
+    .experience-textarea { display:block; width:100%; min-height:220px; resize:vertical; padding:16px; border:1px solid #dfe8e4; border-radius:12px; outline:none; line-height:1.8; font-size:14px; color:var(--ink); margin-top:12px; }
+    .experience-textarea:focus { border-color:var(--focus); box-shadow:0 0 0 3px rgba(26,165,125,.12); }
+    .experience-textarea::placeholder { color:#abb8b2; }
+    .experience-helper { font-size:12px; line-height:1.7; color:var(--muted); margin:12px 0 23px; }
+    .experience-success { min-height:24px; margin:12px 0 0; color:var(--deep); font-size:12px; font-weight:700; }
+    .result { display:none; }
+    .result.show { display:block; }
+    .profile-form.hide, .intro.hide { display:none; }
+    .success-icon { width:64px; height:64px; display:grid; place-items:center; color:var(--green); border-radius:20px; background:#e6f7ed; margin:0 0 23px; }
+    .summary { background:#f6f9f7; border:1px solid #e8efeb; border-radius:15px; padding:10px 21px; margin:27px 0 26px; }
+    .summary-row { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; gap:20px; font-size:14px; }
+    .summary-row + .summary-row { border-top:1px solid #e5ede8; }
+    .summary-row .key { color:#86988f; flex-shrink:0; }
+    .summary-row .value { font-weight:730; text-align:right; overflow-wrap:anywhere; }
+    .secondary-btn { margin-top:10px; width:100%; height:49px; background:#fff; color:var(--green); border:1px solid #cfe5da; border-radius:12px; font-weight:750; }
+    .next-note { background:#ebf8f0; color:#28694f; font-size:13px; line-height:1.7; padding:14px 16px; border-radius:12px; }
+    .ai-info { margin:8px 0 18px; font-size:12px; color:#71837a; line-height:1.65; }
+    .ai-status { margin:13px 0 0; min-height:23px; font-size:13px; font-weight:700; color:var(--deep); }
+    .ai-status.error { color:var(--error); }
+    .ai-results { display:none; padding-top:26px; margin-top:24px; border-top:1px solid #e4ebe7; }
+    .ai-results.show { display:block; }
+    .ai-results h3 { margin:0 0 8px; font-size:19px; letter-spacing:-.045em; }
+    .ai-summary { color:#566b62; font-size:13px; line-height:1.7; margin:0 0 15px; }
+    .skill-list { display:grid; gap:11px; }
+    .skill-card { padding:16px; border:1px solid #dfebe4; border-radius:13px; background:#f8fbf9; }
+    .skill-top { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:space-between; }
+    .skill-name { font-size:15px; font-weight:800; }
+    .evidence-label { color:#117456; background:#e1f5e9; font-size:11px; padding:4px 9px; border-radius:30px; font-weight:700; }
+    .skill-evidence { font-size:13px; line-height:1.65; color:#52685e; margin:9px 0 0; }
+    .ai-caution { padding:13px 15px; background:#f4f8f6; border-radius:10px; color:#70827a; font-size:12px; line-height:1.7; margin:15px 0 0; }
+    .submit:disabled { cursor:wait; opacity:.72; transform:none; }
+    @media (max-width:850px) { .shell { padding:20px; align-items:flex-start; } .page { grid-template-columns:1fr; max-width:570px; min-height:0; } .visual { min-height:210px; padding:27px 31px; } .visual-content { margin:30px 0 0; } .visual h1 { font-size:29px; margin:9px 0; } .visual .lead { font-size:clamp(11px,2.4vw,13px); } .orbit, .visual-footer, .visual .eyebrow { display:none; } .form-side { padding:34px 32px 42px; } .steps { margin-bottom:26px; } }
+    @media (max-width:480px) { .shell { padding:0; } .page { border:0; border-radius:0; box-shadow:none; min-height:100svh; } .visual { min-height:175px; padding:24px; } .brand { font-size:20px; } .visual-content { margin-top:20px; } .visual h1 { font-size:25px; } .visual .lead { font-size:clamp(10px,2.8vw,12px); } .form-side { padding:29px 23px 35px; } .two-col { grid-template-columns:1fr; gap:0; } .steps { font-size:11px; } }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto!important; transition:none!important; } }
+
+    /* 2단계 인터뷰 카드 */
+    .flow-screen { display:none; }
+    .flow-screen.show { display:block; animation:float-in .2s ease-out; }
+    @keyframes float-in { from {opacity:.5; transform:translateY(7px)} to {opacity:1; transform:translateY(0)} }
+    .flow-kicker { display:inline-flex; gap:7px; align-items:center; background:#e7f7ee; color:#137958; font-size:11px; font-weight:800; border-radius:999px; padding:6px 11px; margin-bottom:16px; }
+    .flow-head {margin-bottom:24px}
+    .flow-head h2 {font-size:clamp(25px,2.6vw,31px);letter-spacing:-.065em;line-height:1.35;margin:0 0 10px}
+    .flow-head p {font-size:13px;line-height:1.75;color:#778784;margin:0}
+    .flow-form {margin-top:8px}
+    .flow-form .field {margin-bottom:12px}
+    .flow-form .field label {font-size:13px}
+    .interview-question {background:#edf9f2;border:1px solid #cfeada;border-radius:16px;padding:21px 19px;margin:19px 0 24px;}
+    .interview-question .q-tag {display:block;color:#198462;font-size:11px;font-weight:900;letter-spacing:.065em;margin-bottom:9px}
+    .interview-question p {margin:0;font-size:18px;line-height:1.7;font-weight:790;letter-spacing:-.04em;overflow-wrap:anywhere}
+    .flow-note {font-size:12px;line-height:1.7;color:#819189;margin:12px 0 16px}
+    .flow-status {min-height:20px;font-size:12px;line-height:1.6;color:#127a58;font-weight:700;margin:12px 0 0}
+    .flow-status.error {color:var(--error)}
+    .flow-textarea {width:100%;min-height:145px;resize:vertical;border:1px solid #dfe8e4;border-radius:12px;outline:none;padding:15px 16px;font-size:14px;line-height:1.8;color:#172c2b}
+    .flow-textarea.large {min-height:195px}
+    .flow-textarea::placeholder {color:#aab6b0}
+    .flow-textarea:focus {border-color:var(--focus);box-shadow:0 0 0 3px rgba(26,165,125,.12)}
+    .outlined-btn {width:100%;height:49px;margin-top:10px;border:1px solid #cce3d5;border-radius:12px;background:#fff;color:#188767;font-weight:780}
+    .outlined-btn:hover {background:#f4faf6}
+    .subtle-link {display:block;background:none;border:none;color:#819289;font-size:12px;margin:17px auto 0;padding:5px}
+    .subtle-link:hover {color:#157756}
+    .submit:disabled,.outlined-btn:disabled {opacity:.6;cursor:wait;transform:none}
+    .result-header {display:flex;align-items:center;gap:13px;margin-bottom:18px}
+    .result-bubble {flex-shrink:0;display:grid;place-items:center;width:47px;height:47px;border-radius:15px;background:#def4e6;color:#11815e;font-size:22px}
+    .ai-results-always {margin-top:20px}
+    .flow-privacy {font-size:11.5px;color:#768a80;line-height:1.65;margin:10px 0 21px}
+    .empty-skill {padding:18px;background:#f6faf7;border:1px solid var(--line);border-radius:12px;color:#75847c;font-size:13px}
+    .interview-count {display:flex;align-items:center;gap:7px;margin:0 0 20px;}
+    .interview-count .segment {height:5px;flex:1;background:#e4eee8;border-radius:5px}
+    .interview-count .segment.filled {background:#41b88c}
+    .interview-count span {font-size:10px;color:#95a59a;white-space:nowrap;font-weight:700;margin-left:4px}
+    .flow-screen .submit:focus-visible,.outlined-btn:focus-visible,.subtle-link:focus-visible {outline:3px solid #92dcc2;outline-offset:3px}
+    @media(max-width:480px){.interview-question p {font-size:16px}.flow-head h2{font-size:25px}.visual .lead{white-space:normal}}
+
+    /* 3단계: 인터뷰 후 공모전 탐색 화면 */
+    .page.contest-mode { display:block; width:min(1120px,100%); min-height:730px; }
+    .page.contest-mode .visual { display:none; }
+    .page.contest-mode .form-side { display:block; padding:0; }
+    .page.contest-mode .steps { display:none; }
+    .contest-layout { padding:0 52px 46px; }
+    .contest-topbar { display:flex; align-items:center; justify-content:space-between; padding:26px 52px; border-bottom:1px solid #e8efe9; }
+    .contest-logo { display:flex; align-items:center; gap:9px; font-size:21px; font-weight:850; letter-spacing:-.055em; }
+    .contest-logo .brand-mark { width:33px; height:33px; border-radius:11px; }
+    .contest-logo small { color:#5e9882; font-weight:780; font-size:11px; letter-spacing:.02em; margin-left:1px; }
+    .contest-top-tag { display:inline-flex; align-items:center; gap:7px; font-weight:750; font-size:12px; color:#127e5e; background:#e7f7ee; padding:8px 12px; border-radius:999px; }
+    .contest-intro { padding:35px 0 23px; }
+    .contest-overline { font-size:11px; letter-spacing:.13em; font-weight:850; color:#14936e; }
+    .contest-intro h2 { font-size:clamp(26px,3vw,35px); letter-spacing:-.07em; margin:7px 0 9px; line-height:1.3; }
+    .contest-intro p { color:#70847a; line-height:1.75; font-size:14px; margin:0; }
+    .contest-profile { display:flex; align-items:center; flex-wrap:wrap; gap:12px; background:linear-gradient(110deg,#eaf8ef,#f5fbf6); border:1px solid #d7eedf; padding:16px 19px; border-radius:15px; margin:0 0 30px; }
+    .contest-profile-icon { flex-shrink:0; width:39px; height:39px; border-radius:13px; display:grid; place-items:center; background:white; font-size:19px; }
+    .contest-profile-info { flex:1; min-width:200px; }
+    .contest-profile-info strong { font-size:13px; display:block; }
+    .contest-profile-info p { color:#698778; margin:2px 0 0; font-size:11px; }
+    .contest-skill-tags { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+    .contest-skill-tags span { font-size:11px; font-weight:750; padding:6px 10px; background:white; border-radius:30px; color:#168261; }
+    .contest-tools { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; margin:0 0 19px; }
+    .contest-tools h3 { font-size:21px; letter-spacing:-.045em; margin:0; font-weight:850; }
+    .contest-tools-title { display:flex; gap:13px; align-items:center; flex-wrap:wrap; }
+    .contest-refresh { border:1px solid #b6ddc9; border-radius:10px; color:#137e5c; padding:8px 12px; background:#eef9f1; font-size:12px; font-weight:800; white-space:nowrap; }
+    .contest-refresh:hover { background:#def3e4; }
+    .contest-refresh:disabled { opacity:.55; cursor:wait; }
+    .contest-refresh-status { font-size:12px; color:#537a65; margin:0 0 12px; line-height:1.65; }
+    .contest-refresh-status.error { color:#c83f55; }
+    .contest-origin-link { border:0; background:none; font-weight:800; color:#148762; text-decoration:none; font-size:12px; white-space:nowrap; }
+    .contest-origin-link:hover { text-decoration:underline; }
+
+    .contest-search { display:flex; align-items:center; gap:8px; border:1px solid #dceae2; border-radius:11px; height:44px; padding:0 14px; width:min(350px,100%); color:#789488; position:relative; top:0; }
+    .contest-search:focus-within { border-color:#1aa57d; box-shadow:0 0 0 3px rgba(26,165,125,.09); }
+    .contest-search input { border:none; outline:none; background:none; width:100%; font-size:13px; color:#172c2b; }
+    .contest-search input::placeholder { color:#a5b6ad; }
+    .contest-control-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; column-gap:16px; row-gap:12px; margin:0 0 19px; }
+    .contest-sort-row { display:flex; justify-content:flex-end; align-items:center; gap:9px; flex-shrink:0; }
+    .contest-sort-button { border:1px solid #d7e9db; background:#f6faf7; color:#3a7861; border-radius:9px; font-size:12px; padding:9px 14px; font-weight:800; min-height:37px; }
+    .contest-sort-button:hover { border-color:#98ceb0; background:#edf8ef; }
+    .contest-sort-button.active { background:#168f6c; border-color:#168f6c; color:#fff; box-shadow:0 3px 9px rgba(20,142,106,.11); }
+    .contest-sort-hint { color:#688b78; font-size:12px; line-height:1.65; margin:0 0 13px; }
+    .contest-filters { display:flex; gap:8px; flex-wrap:wrap; margin:0; }
+    .contest-filter { border:1px solid #ddeae2; color:#687d71; background:#fff; padding:8px 14px; font-size:12px; font-weight:750; border-radius:999px; }
+    .contest-filter:hover { border-color:#8bceb0; color:#148665; }
+    .contest-filter.active { background:#169773; color:#fff; border-color:#169773; }
+    .contest-count { margin:0 0 20px; font-size:12px; color:#91a39a; }
+    .contest-relevance { margin:0 0 10px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; color:#226d50; font-size:12px; font-weight:750; }
+    .contest-relevance-score { background:#e2f4dc; color:#176444; border-radius:999px; padding:5px 10px; font-size:12px; font-weight:850; }
+    .contest-relevance-score.low { background:#f3f0e4; color:#7d795e; }
+    .contest-relevance-reason { color:#607568; font-size:11px; font-weight:600; }
+    .contest-relevance-note { color:#9a9274; font-size:10.5px; line-height:1.5; margin-top:-4px; margin-bottom:12px; }
+    .contest-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .contest-card { padding:23px; background:#fbfaf6; border:1px solid #eae8df; border-radius:18px; display:flex; flex-direction:column; min-height:250px; transition:border-color .15s,box-shadow .15s; }
+    .contest-card:hover { border-color:#d8d5c7; box-shadow:0 12px 28px rgba(70,66,52,.055); }
+    .contest-card-top { display:flex; justify-content:space-between; align-items:center; gap:9px; }
+    .contest-card-category { color:#117d5a; background:#eaf7ee; font-size:11px; border-radius:8px; padding:5px 9px; font-weight:800; }
+    .contest-sample { font-size:11px; color:#879990; font-weight:720; background:#f3f7f4; padding:5px 9px; border-radius:8px; }
+    .contest-card h3 { margin:17px 0 8px; font-size:19px; letter-spacing:-.052em; line-height:1.4; }
+    .contest-card-description { margin:0 0 18px; font-size:12.5px; color:#6d8076; line-height:1.75; min-height:42px; }
+    .contest-card-label { font-size:11px; color:#9aaba1; margin-bottom:8px; }
+    .contest-card-roles { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:19px; }
+    .contest-card-roles span { color:#426a59; background:#f0f7f2; padding:5px 9px; border-radius:7px; font-size:11px; font-weight:700; }
+    .contest-card-bottom { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:auto; padding-top:14px; border-top:1px solid #eef2ef; }
+    .contest-card-bottom span { font-size:11px; color:#90a299; }
+    .contest-detail-button { border:0; background:none; font-weight:800; font-size:12px; color:#148762; padding:5px; white-space:nowrap; }
+    .contest-detail-button:hover { text-decoration:underline; }
+    .contest-detail-panel { background:#f2f9f4; border-radius:9px; font-size:12px; line-height:1.7; color:#627d6d; padding:13px; margin-top:12px; }
+    .contest-empty { border:1px dashed #d5e7dc; color:#799187; text-align:center; padding:42px 20px; border-radius:14px; background:#f9fcfa; font-size:13px; }
+    .contest-more-area { display:flex; justify-content:center; margin-top:22px; }
+    .contest-more-btn { border:1px solid #cde3d5; border-radius:12px; background:#fff; color:#147a5b; font-size:14px; font-weight:800; padding:13px 28px; min-width:188px; }
+    .contest-more-btn:hover { background:#edf8f1; border-color:#86c5a5; }
+    .contest-disclaimer { margin:21px 0 4px; padding:14px 16px; border-radius:12px; background:#f6f9f7; font-size:12px; line-height:1.7; color:#788b80; }
+    .contest-back { display:inline-flex; align-items:center; gap:4px; color:#138261; margin-top:18px; border:none; background:none; font-size:13px; font-weight:750; padding:8px 0; }
+    .contest-back:hover { text-decoration:underline; }
+    .contest-back:focus-visible,.contest-detail-button:focus-visible,.contest-filter:focus-visible,.contest-more-btn:focus-visible,.contest-sort-button:focus-visible { outline:3px solid #92dcc2; outline-offset:3px; }
+    [hidden] { display:none!important; }
+    @media(max-width:850px) { .page.contest-mode { max-width:750px; } .contest-layout { padding:0 29px 37px; } .contest-topbar { padding:21px 29px; } }
+    @media(max-width:620px) { .contest-control-row { align-items:flex-start; } .contest-sort-row { justify-content:flex-start; } .contest-sort-hint { text-align:left; } .contest-tools-title { justify-content:space-between; } .contest-grid { grid-template-columns:1fr; } .contest-tools { flex-direction:column; align-items:stretch; } .contest-search { width:100%; top:0; } .contest-profile { align-items:flex-start; } .contest-skill-tags { justify-content:flex-start; } .contest-card { min-height:auto; } }
+    @media(max-width:480px) { .contest-layout { padding:0 22px 27px; } .contest-topbar { padding:21px 22px; } .contest-intro { padding-top:28px; } .contest-intro h2 { font-size:26px; } .contest-card { padding:19px; } .contest-filter { padding:8px 11px; } }
+
+    /* 8단계: 공모전 카드 안의 추천 팀원 1순위 컴포넌트 */
+    .contest-card { min-height:306px; padding:24px 23px 17px; }
+    .contest-card h3 { margin:16px 0 11px; font-size:19px; }
+    .contest-card .contest-relevance { margin:0 0 9px; }
+    .match-strip { margin:12px 0 16px; border:1px solid #dde7de; background:#fffdfa; border-radius:16px; padding:12px 12px 10px; display:grid; grid-template-columns:minmax(0,1fr) 96px; grid-template-rows:1fr auto; gap:10px 8px; min-height:186px; align-items:start; }
+    .match-main { display:grid; grid-template-columns:44px minmax(0,1fr); grid-template-areas:'avatar header' 'avatar tags' 'avatar reason'; column-gap:10px; row-gap:6px; min-width:0; align-items:start; }
+    .match-avatar { grid-area:avatar; width:44px; height:44px; flex:0 0 44px; border-radius:50%; background:#dff1e7; display:grid; place-items:center; color:#1a9874; border:1px solid #d0e5d8; }
+    .match-person { min-width:0; display:contents; }
+    .match-name-row { grid-area:header; display:flex; align-items:baseline; flex-wrap:wrap; gap:2px 6px; margin:0; }
+    .match-name-row strong { font-size:13px; color:#17392d; font-weight:850; letter-spacing:-.03em; }
+    .match-name-row .match-metadata { font-size:10px; color:#7b9085; }
+    .match-skill-tags { grid-area:tags; display:flex; flex-wrap:wrap; gap:5px; margin:0; align-items:center; }
+    .match-skill-tags span { color:#236b51; font-size:10px; font-weight:760; padding:5px 8px; border:1px solid #dbeee3; border-radius:8px; background:#edf8ef; }
+    .match-skill-tags span.more { background:#f5f6f2; border-color:#e3e8df; color:#6d7e73; min-width:28px; text-align:center; padding-left:0; padding-right:0; }
+    .match-reason { grid-area:reason; font-size:10.5px; color:#6d7e73; line-height:1.55; margin:2px 0 0; overflow-wrap:anywhere; min-height:3.25em; max-height:3.25em; overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; }
+    .match-action-row { grid-column:1 / -1; grid-row:2; display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:wrap; margin:0; padding-top:1px; }
+    .match-score-box { align-self:start; width:96px; flex:0 0 96px; border-radius:14px; padding:10px 8px; border:1px solid #d8ede2; background:#eff8f1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; line-height:1.2; min-height:92px; }
+    .match-score-box .score-type { color:#2f8064; font-size:12px; font-weight:800; }
+    .match-score-box strong { color:#138a66; font-size:20px; letter-spacing:-.06em; margin:4px 0 3px; }
+    .match-score-box .score-caption { color:#83938a; font-size:9px; }
+    .match-score-box.pending { background:#f3f6f2; border-color:#e5eae5; }
+    .match-score-box.pending strong { color:#9aa9a1; }
+    .match-demo-note { padding:0 1px 6px; color:#9ba69e; font-size:9.5px; }
+    .contest-card-bottom { margin-top:auto; border-top:1px solid #ebece5; }
+    @media(max-width:480px) {
+      .contest-card {padding:19px 16px 14px}
+      .match-strip {padding:10px 9px;gap:8px 7px;min-height:170px;grid-template-columns:minmax(0,1fr) 78px}
+      .match-main {grid-template-columns:38px minmax(0,1fr); column-gap:8px; row-gap:5px}
+      .match-avatar {width:38px;height:38px;flex-basis:38px}
+      .match-score-box {width:78px;flex-basis:78px;padding:8px 4px;min-height:78px}
+      .match-score-box strong {font-size:18px}
+      .match-name-row .match-metadata {font-size:8.5px}
+      .match-skill-tags span {font-size:8.5px;padding:4px 6px}
+    }
+    /* 계정 관리: 기존 CHEMI 시각 디자인과 같은 민트 계열 */
+    #authGate {display:none; width:100%; max-width:480px; margin:0 auto; padding:30px 0;}
+    body.auth-gated .form-side > :not(#authGate) {display:none !important;}
+    body.auth-gated .form-side > #authGate {display:block;}
+    .auth-kicker {font-size:12px; font-weight:800; letter-spacing:.1em; color:#169875; margin-bottom:12px;}
+    .auth-choice {display:flex; gap:8px; margin:24px 0;}
+    .auth-choice button {flex:1; border:1px solid #d5e4dc; background:white; color:#527466; padding:12px 6px; border-radius:12px; font:inherit; font-weight:700; cursor:pointer;}
+    .auth-choice button.active {color:#087654; background:#e9f8ef; border-color:#9edfc1;}
+    .auth-note {background:#f3f9f5; padding:13px 14px; border-radius:12px; color:#687c70; font-size:12px; line-height:1.65; margin-bottom:18px;}
+    .auth-gate-status {min-height:20px; margin:10px 0; font-size:13px; color:#667d72;}
+    .auth-gate-status.error {color:#c83f55;}
+    .account-bar {display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 20px; padding:11px 13px; border-radius:12px; background:#eff9f2; color:#4b7764; font-size:12px;}
+    .account-bar button {border:1px solid #c8dfd1; padding:6px 10px; border-radius:8px; background:white; color:#237353; font-weight:700; font-size:12px; cursor:pointer;}
+    .account-bar .danger {color:#a2454f; border-color:#eedbdd;}
+    .account-bar .account-name {margin-right:auto; overflow-wrap:anywhere;}
+    .consent-row {display:flex; align-items:flex-start; gap:9px; margin:4px 0 17px; font-size:12px; color:#587364; line-height:1.7; cursor:pointer;}
+    .consent-row input {margin-top:5px; accent-color:#139a70; flex-shrink:0;}
+    #restoreAnalysisBtn {margin-top:14px; width:100%;}
+    .stored-result-status {font-size:12px; color:#26835f; padding:7px 0 0;}
+    @media(max-width:480px){.account-bar{gap:5px}.account-bar button{padding:5px 7px}}
+    [hidden] {display:none !important;}
+
+    /* Step 11: explicit participation, incoming/outgoing requests */
+    /* Step 14 layout update: matching panels after contest cards and More button. */
+    .match-panels-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:16px;margin:25px 0 22px;}
+    .match-consent-panel,.match-request-panel{border:1px solid #dbe9e0;background:#f8fbf9;border-radius:17px;padding:19px 21px;margin:0;min-width:0;}
+    .match-panels-grid>.match-consent-panel,.match-panels-grid>.match-request-panel{height:100%;}
+    @media(max-width:800px){.match-panels-grid{grid-template-columns:minmax(0,1fr);gap:14px;}}
+    .match-consent-panel h3,.match-request-panel h3{margin:0 0 8px;font-size:18px;color:#193e32;}
+    .match-subline{margin:0 0 12px;color:#597367;font-size:12px;line-height:1.7;}
+    .match-consent-check{display:flex;gap:9px;align-items:flex-start;font-size:13px;font-weight:700;color:#245545;cursor:pointer;}
+    .match-consent-check input{accent-color:#169875;margin-top:4px;}
+    .match-interests{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0;font-size:12px;color:#446a59;}
+    .match-interests label{display:flex;align-items:center;gap:5px;cursor:pointer;}
+    .match-interests input{accent-color:#159a70;}
+    .match-save{border:0;border-radius:10px;background:#169875;color:white;font:inherit;font-size:13px;font-weight:750;padding:10px 16px;cursor:pointer;}
+    .match-save:disabled{opacity:.55;cursor:wait;}
+    .match-settings-status{font-size:12px;color:#537866;margin:10px 0 0;line-height:1.55;}
+    .match-settings-status.error{color:#c74255;}
+    .match-check-panel{margin-top:13px;border-top:1px solid #d9e9df;padding-top:13px;}
+    .match-check-head{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+    .match-check-head strong{font-size:13px;color:#245545;}
+    .match-check-btn{font:inherit;font-size:12px;color:#087a56;background:#fff;border:1px solid #b8daca;border-radius:9px;padding:7px 10px;font-weight:700;cursor:pointer;}
+    .match-check-btn:disabled{opacity:.6;cursor:wait;}
+    .match-check-notice{font-size:12px;line-height:1.6;color:#587569;margin:9px 0 0;}
+    .match-check-notice.error{color:#b93f50;}
+    .match-check-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px;}
+    .match-check-metrics span{border:1px solid #dfece3;background:white;border-radius:10px;padding:9px 10px;color:#61796c;font-size:11px;}
+    .match-check-metrics strong{display:block;color:#176f52;font-size:15px;margin-top:2px;}
+    .match-request-panel{background:white;}
+    /* Step 16: compact incoming/outgoing request management. */
+    .match-request-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0;}
+    .match-request-summary>span{background:#f3f9f5;border:1px solid #e0ede4;border-radius:10px;padding:9px 7px;text-align:center;color:#617b6e;font-size:10px;line-height:1.45;}
+    .match-request-summary strong{display:block;font-size:17px;color:#168763;margin-top:2px;}
+    .match-request-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0 10px;}
+    .match-request-tab{font:inherit;border:1px solid #d4e7db;border-radius:10px;background:#f7faf8;color:#627d6e;font-size:12px;font-weight:750;padding:10px 6px;cursor:pointer;min-width:0;}
+    .match-request-tab[aria-pressed="true"]{background:#168f6c;color:white;border-color:#168f6c;}
+    .match-request-tab:focus-visible,.match-request-actions button:focus-visible{outline:3px solid #9cdbc4;outline-offset:2px;}
+    .match-request-feedback{min-height:0;font-size:11px;line-height:1.65;color:#197b59;margin:0 0 8px;}
+    .match-request-feedback.error{color:#ba4d50;}
+    .match-request-list{display:grid;gap:9px;}
+    .match-request-empty{background:#f8faf8;border:1px dashed #d7e8dd;border-radius:10px;padding:17px 12px;color:#789085;font-size:12px;text-align:center;line-height:1.6;}
+    .match-request-item{display:flex;flex-direction:column;gap:8px;border:1px solid #e0ebe5;border-radius:12px;padding:13px;background:#fbfdfb;min-width:0;}
+    .match-request-item-header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+    .match-request-item strong{font-size:12.5px;color:#204638;overflow-wrap:anywhere;}
+    .match-request-item p{margin:0;font-size:11px;color:#687b70;line-height:1.6;overflow-wrap:anywhere;}
+    .match-request-item .match-request-date{font-size:10px;color:#91a39a;}
+    .match-request-item .match-request-msg{padding:7px 9px;border-radius:8px;background:#f0f5f1;}
+    .match-request-item .match-accepted-note{color:#186f52;background:#ecf8f0;padding:9px 10px;border-radius:9px;}
+    .match-request-status{font-size:10.5px;font-weight:800;border-radius:999px;padding:5px 9px;white-space:nowrap;background:#f1f5f1;color:#687d71;}
+    .match-request-status.pending{background:#fff6dc;color:#876710;}
+    .match-request-status.accepted{background:#e0f5e8;color:#167852;}
+    .match-request-status.declined{background:#f9eaea;color:#a65458;}
+    .match-request-status.cancelled{background:#f0f2f3;color:#73808a;}
+    .match-request-status.demo{background:#eaf5f0;color:#127754;border:1px dashed #9bd9bc;}
+    .match-request-item.is-demo{background:#f9fcfa;border-style:dashed;}
+    .match-demo-help{font-size:11px;line-height:1.6;color:#687e70;background:#f4faf6;border-radius:8px;padding:8px 10px;margin:7px 0 0;}
+    .match-request-actions .demo-delete{border:1px solid #dbe5df;background:#fff;color:#66776a;}
+    .match-action-row .demo-invite{background:#eff9f2;border:1px dashed #76bd9d;color:#127755;}
+    .match-action-row .demo-invite:disabled{background:#f2f6f3;border-style:solid;color:#738a79;}
+
+    .match-request-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;}
+    .match-request-actions button,.match-request-invite{border-radius:9px;border:1px solid #c5e4d2;background:#eff9f3;color:#087a56;padding:7px 10px;font:inherit;font-size:12px;font-weight:700;cursor:pointer;}
+    .match-request-actions .decline{border-color:#eddbdc;color:#a64c53;background:#fff5f5;}
+    .match-request-actions .cancel{border-color:#dbe5df;color:#627c70;background:#fff;}
+    .match-request-invite{width:max-content;max-width:100%;margin-top:8px;}
+    /* Step 19: detail and invitation stay adjacent in each compact teammate card. */
+    .match-action-row .match-request-invite{margin-top:4px;}
+    .match-action-row .member-profile-button,.match-action-row .match-request-invite{min-height:32px;}
+    .match-action-row .match-request-invite{background:#179873;border-color:#179873;color:#fff;}
+    .match-action-row .match-request-invite:disabled{background:#f1f5f2;border-color:#dbe7df;color:#76887c;opacity:1;cursor:not-allowed;}
+    @media(max-width:420px){.match-action-row{gap:6px}.match-action-row button{font-size:10px;padding:5px 7px;}}
+    .member-factor-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+    .member-factor-list div{padding:9px 11px;background:#f6faf7;border:1px solid #e2eee6;border-radius:9px;font-size:11px;color:#577565;display:flex;justify-content:space-between;gap:8px;}
+    .member-factor-list strong{color:#157b57;white-space:nowrap;}
+    .member-evidence-note{font-size:11px;color:#8a8978;line-height:1.6;margin:10px 0 0;}
+
+    .match-request-invite:disabled,.match-request-actions button:disabled{opacity:.5;cursor:not-allowed;}
+    @media(max-width:600px){.match-consent-panel,.match-request-panel{padding:14px}.match-request-item{align-items:flex-start}}
+
+    /* Step 14: accessible teammate details dialog (no new personal-data API calls). */
+    .member-profile-button{border:1px solid #b8ddc8;background:#fff;color:#137f5c;border-radius:8px;padding:6px 10px;font:inherit;font-size:10.5px;font-weight:800;cursor:pointer;margin-top:4px;width:max-content;max-width:100%;}
+    .member-profile-button:hover,.member-profile-button:focus-visible{background:#eaf7ed;outline-offset:2px;}
+    .member-overlay[hidden]{display:none!important;}
+    .member-overlay{position:fixed;inset:0;z-index:1000;background:rgba(16,39,31,.56);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;}
+    .member-dialog{position:relative;width:min(690px,100%);max-height:min(92svh,920px);overflow:auto;background:#fff;border-radius:23px;box-shadow:0 30px 90px rgba(12,40,27,.28);padding:29px 30px 25px;outline:none;}
+    .member-close{position:absolute;right:19px;top:17px;width:37px;height:37px;border:1px solid #e1eae5;background:white;border-radius:50%;font-size:24px;color:#5c7267;display:grid;place-items:center;cursor:pointer;line-height:1;}
+    .member-close:hover{background:#eef8f1;}
+    .member-head{display:flex;align-items:center;gap:16px;padding:9px 45px 22px 0;border-bottom:1px solid #e7eee9;}
+    .member-large-avatar{height:69px;width:69px;flex:0 0 69px;border-radius:50%;display:grid;place-items:center;background:#e7f5ec;color:#15946a;}
+    .member-identity{flex:1;min-width:0;}
+    .member-type{font-size:11px;display:inline-block;color:#087657;background:#e6f8ec;padding:5px 9px;border-radius:999px;font-weight:800;}
+    .member-identity h2{margin:9px 0 4px;font-size:25px;letter-spacing:-.045em;line-height:1.3;}
+    .member-meta{font-size:12px;line-height:1.6;color:#71867a;margin:0;overflow-wrap:anywhere;}
+    .member-score-panel{border:1px solid #d2e9dc;background:#f0faf2;padding:13px 14px;border-radius:14px;text-align:center;min-width:100px;}
+    .member-score-panel strong{display:block;font-size:27px;color:#0c8e66;line-height:1.3;}
+    .member-score-panel span{font-size:10px;color:#517667;font-weight:800;}
+    .member-context{margin:18px 0 13px;border-radius:12px;background:#f7f9f7;padding:13px 15px;color:#5b7869;font-size:12px;line-height:1.7;overflow-wrap:anywhere;}
+    .member-context strong{display:block;font-size:11px;color:#18775a;margin-bottom:4px;}
+    .member-section{margin:18px 0 0;}
+    .member-section h3{font-size:14px;letter-spacing:-.03em;color:#203a30;margin:0 0 9px;}
+    .member-skill-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+    .member-skill-col{background:#f9fbf9;border:1px solid #e4eee7;border-radius:12px;padding:13px;min-width:0;}
+    .member-chip-wrap{display:flex;flex-wrap:wrap;gap:6px;}
+    .member-chip{display:inline-flex;border-radius:8px;background:#e8f5eb;color:#176d51;font-size:11px;font-weight:750;padding:6px 8px;line-height:1.35;overflow-wrap:anywhere;}
+    .member-chip.mine{background:#eef0f8;color:#566383;}
+    .member-muted{font-size:12px;color:#7d9185;line-height:1.7;margin:0;}
+    .member-why{padding:15px;border:1px solid #e1ece5;border-radius:12px;background:#f4faf5;color:#405b4a;font-size:13px;line-height:1.75;overflow-wrap:anywhere;}
+    .member-disclaimer{font-size:11px;color:#8b968e;line-height:1.7;margin:18px 0 0;}
+    .member-actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px;border-top:1px solid #e8efea;padding-top:17px;}
+    .member-actions button{padding:11px 16px;border-radius:10px;font:inherit;font-weight:800;font-size:13px;cursor:pointer;}
+    .member-outline-btn{background:white;border:1px solid #bcdaca;color:#267758;}
+    .member-primary-btn{background:#179873;border:1px solid #179873;color:white;}
+    .member-primary-btn:disabled{opacity:.6;cursor:default;}
+    .member-invite-wrap[hidden]{display:none!important;}
+    .member-invite-wrap{width:100%;padding-top:4px;}
+    .member-invite-wrap label{display:block;font-size:12px;font-weight:750;color:#355c49;margin-bottom:6px;}
+    .member-invite-wrap textarea{width:100%;padding:10px 12px;resize:vertical;min-height:62px;max-height:140px;border:1px solid #d5e7db;border-radius:10px;font:inherit;font-size:12px;outline-color:#179873;}
+    .member-invite-status{font-size:12px;line-height:1.5;min-height:19px;color:#137b5e;margin:8px 0 0;}
+    .member-invite-status.error{color:#bf4150;}
+    @media(max-width:600px){.member-overlay{padding:8px;align-items:center}.member-dialog{padding:23px 17px 17px;border-radius:17px;max-height:95svh}.member-head{gap:10px;padding-right:38px}.member-large-avatar{width:53px;height:53px;flex-basis:53px}.member-identity h2{font-size:20px}.member-score-panel{min-width:76px;padding:8px 6px}.member-score-panel strong{font-size:22px}.member-skill-comparison{grid-template-columns:1fr}.member-actions button{flex:1}}
+
+  </style>
+</head>
+<body class="auth-gated">
+  <main class="shell">
+    <div class="page">
+      <aside class="visual" aria-label="케미 서비스 소개">
+        <div class="brand"><span class="brand-mark" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" fill="white"/><circle cx="16" cy="8" r="4" fill="#c9f3db"/><circle cx="8" cy="16" r="4" fill="#c9f3db"/><circle cx="16" cy="16" r="4" fill="white"/></svg></span>케미<span style="font-size:12px;color:#539078;font-weight:750;letter-spacing:.06em">CHEMI</span></div>
+        <div class="visual-content">
+          <div class="eyebrow">FIND YOUR TEAM CHEMISTRY</div>
+          <h1>나와 딱 맞는 팀원,<br><span>케미</span>에서 찾아요.</h1>
+          <p class="lead">서로 다른 강점이 만나 더 좋은 팀이 되도록.</p>
+          <div class="orbit" aria-hidden="true">
+            <div class="orbit-main"><div class="tiny">우리 팀의 케미</div><strong>다른 강점, 하나의 팀</strong><div class="mini-pills"><span>개발</span><span>기획</span><span>디자인</span></div></div>
+            <div class="floating one"><span class="dot"></span>개발 잘하는 사람</div>
+            <div class="floating two"><span class="dot" style="background:#d4c0fa"></span>디자인 잘하는 사람</div>
+            <div class="floating three"><span class="dot" style="background:#f5c87d"></span>아이디어가 많은 사람</div>
+            <div class="floating four"><span class="dot" style="background:#a0d6fa"></span>발표 잘하는 사람</div>
+          </div>
+        </div>
+        <div class="visual-footer">CHEMI · AI 기반 역량 상호보완형 팀원 매칭</div>
+      </aside>
+      <section class="form-side">
+        <section id="authGate" aria-labelledby="authTitle">
+          <div class="auth-kicker">CHEMI · ACCOUNT</div>
+          <h2 id="authTitle" style="font-size:28px;line-height:1.3;letter-spacing:-.05em">케미에 로그인해 주세요 👋</h2>
+          <p style="margin-top:12px;color:#74867c;font-size:14px;line-height:1.7">내 프로필과 AI 핵심역량을 저장하고<br>다음 접속에서도 이어서 이용할 수 있어요.</p>
+          <div class="auth-choice" role="group" aria-label="로그인 또는 회원가입">
+            <button type="button" id="authLoginTab" class="active" aria-pressed="true">로그인</button>
+            <button type="button" id="authSignupTab" aria-pressed="false">회원가입</button>
+          </div>
+          <form id="authForm">
+            <div class="field"><label for="authEmail">계정 이메일 *</label><input id="authEmail" type="email" autocomplete="email" placeholder="example@university.ac.kr" maxlength="254" required></div>
+            <div class="field"><label for="authPassword">비밀번호 *</label><input id="authPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" placeholder="8자 이상 비밀번호" required></div>
+            <div class="auth-note">계정 정보는 Supabase Auth에서 관리하며, 비밀번호는 케미 DB에 저장하지 않아요. 이메일 인증이 켜져 있다면 인증 후 로그인할 수 있어요.</div>
+            <button id="authSubmit" type="submit" class="submit">로그인 →</button>
+          </form>
+          <p id="authStatus" class="auth-gate-status" role="status" aria-live="polite">서버 설정을 확인하고 있어요...</p>
+        </section>
+        <div id="accountBar" class="account-bar" hidden>
+          <span id="accountEmail" class="account-name"></span>
+          <button id="logoutBtn" type="button">로그아웃</button>
+          <button id="deleteDataBtn" type="button" class="danger" title="프로필과 분석 결과만 삭제하고 계정은 유지">내 저장 데이터 삭제</button>
+        </div>
+        <div class="steps" aria-label="현재 단계"><span class="active" id="stepLabel">01 기본 정보</span></div>
+        <div class="intro heading" id="intro"><h2>먼저, 당신을 알려주세요 👋</h2><p>케미에서 함께할 팀원을 찾기 위한 첫 단계예요.<br>기본 정보를 입력하고 시작해 볼까요?</p></div>
+        <form class="profile-form" id="profileForm" novalidate>
+          <div class="field"><label for="nickname">이름 또는 닉네임 <span class="req" aria-hidden="true">*</span></label><input id="nickname" name="nickname" type="text" maxlength="24" autocomplete="nickname" placeholder="팀원에게 보여줄 이름" required aria-describedby="nickname-error"><p class="error" id="nickname-error" aria-live="polite"></p></div>
+          <div class="field"><label for="university">대학교 <span class="req" aria-hidden="true">*</span></label><input id="university" name="university" type="text" list="university-list" maxlength="60" autocomplete="organization" placeholder="예: 강원대학교" required aria-describedby="university-error"><datalist id="university-list"><option value="강원대학교"></option><option value="서울대학교"></option><option value="연세대학교"></option><option value="고려대학교"></option><option value="한양대학교"></option></datalist><p class="error" id="university-error" aria-live="polite"></p></div>
+          <div class="two-col">
+            <div class="field"><label for="major">학과 / 전공 <span class="req" aria-hidden="true">*</span></label><input id="major" name="major" type="text" maxlength="70" placeholder="예: AI소프트웨어학과" required aria-describedby="major-error"><p class="error" id="major-error" aria-live="polite"></p></div>
+            <div class="field"><label for="grade">학년 <span class="req" aria-hidden="true">*</span></label><select id="grade" name="grade" required aria-describedby="grade-error"><option value="" selected disabled>학년 선택</option><option value="1학년">1학년</option><option value="2학년">2학년</option><option value="3학년">3학년</option><option value="4학년">4학년</option><option value="5학년 이상">5학년 이상</option><option value="휴학생">휴학생</option><option value="졸업생">졸업생</option></select><p class="error" id="grade-error" aria-live="polite"></p></div>
+          </div>
+          <div class="field"><label for="email">계정 이메일 <span class="optional">(로그인 계정)</span></label><input id="email" name="email" type="email" maxlength="100" autocomplete="email" placeholder="example@university.ac.kr" readonly aria-describedby="email-error"><p class="error" id="email-error" aria-live="polite"></p></div>
+          <label class="consent-row"><input type="checkbox" id="storageConsent"><span>내 프로필과 경험·활동 인터뷰, AI 핵심역량 결과를 케미의 온라인 DB에 저장하고 팀원 매칭에 활용하는 데 동의합니다. 현재 다른 사용자에게는 공개되지 않으며, 저장 데이터 삭제가 가능합니다.</span></label>
+
+          <button type="submit" class="submit" id="nextButton">기본 정보 저장하고 다음으로 <span aria-hidden="true">→</span></button>
+          <p class="smallprint" id="profileStatus" role="status" aria-live="polite">* 표시된 항목은 필수 입력 사항이에요.</p>
+          <button type="button" id="restoreAnalysisBtn" class="outlined-btn" hidden>저장된 내 핵심역량 다시 보기 →</button>
+        </form>
+        <div id="screenExperience" class="flow-screen" aria-labelledby="experienceTitle">
+          <div class="flow-kicker">01 · 경험 인터뷰 시작</div>
+          <div class="flow-head"><h2 id="experienceTitle">내 경험과 활동을 알려주세요 ✨</h2><p>처음에는 활동 하나만 편하게 작성해 주세요.<br>AI가 그 경험에 대해 한 가지 질문을 드릴게요.</p></div>
+          <div class="interview-count" aria-hidden="true"><i class="segment filled"></i><i class="segment"></i><i class="segment"></i><span>1 / 3</span></div>
+          <form id="experienceForm" class="flow-form">
+            <div class="field"><label for="experience">첫 번째 경험 또는 활동 <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="experience" class="flow-textarea large" maxlength="4000" required placeholder="예시) 수업에서 Python으로 데이터를 정리하는 팀 프로젝트에 참여했어요. 저는 데이터를 가공하는 역할을 했어요."></textarea>
+              <p class="flow-note">수업, 동아리, 아르바이트, 봉사활동, 공모전 등 작은 경험도 좋아요.</p>
+            </div>
+            <p class="flow-privacy">AI 인터뷰를 시작하면 작성한 경험과 답변이 OpenAI API로 전송돼요. 이름·이메일·학과 정보는 전송하지 않아요.</p>
+            <button id="startInterviewBtn" class="submit" type="submit">AI 인터뷰 시작하기 <span aria-hidden="true">→</span></button>
+            <p id="experienceStatus" class="flow-status" role="status" aria-live="polite"></p>
+            <button type="button" id="editProfileBtn" class="subtle-link">← 기본 정보 수정하기</button>
+          </form>
+        </div>
+
+        <div id="screenQuestion1" class="flow-screen" aria-labelledby="question1Title">
+          <div class="flow-kicker">02 · 첫 번째 꼬리질문</div>
+          <div class="flow-head"><h2 id="question1Title">조금만 더 알려주세요</h2><p>정답은 없어요. 실제로 해 본 만큼만 편하게 답변해 주세요.</p></div>
+          <div class="interview-count" aria-hidden="true"><i class="segment filled"></i><i class="segment filled"></i><i class="segment"></i><span>2 / 3</span></div>
+          <div class="interview-question"><span class="q-tag">CHEMI AI · 질문 1 / 2</span><p id="firstQuestionText"></p></div>
+          <form id="answer1Form" class="flow-form"><div class="field"><label for="firstAnswer">나의 답변 <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="firstAnswer" class="flow-textarea" maxlength="1600" required placeholder="예시) 저는 주로 CSV 파일을 정리했고, 중복 데이터와 누락된 값을 직접 처리했어요."></textarea></div>
+            <button id="firstAnswerBtn" type="submit" class="submit">답변 저장하고 다음으로 →</button>
+            <p id="question1Status" class="flow-status" role="status" aria-live="polite"></p>
+            <button id="backToExperienceBtn" type="button" class="subtle-link">← 첫 경험 수정하기</button>
+          </form>
+        </div>
+
+        <div id="screenAdditional" class="flow-screen" aria-labelledby="additionalTitle">
+          <div class="flow-kicker">03 · 추가 경험 확인</div>
+          <div class="flow-head"><h2 id="additionalTitle">새로운 경험이나 활동이 있나요?</h2><p>다른 활동이 있다면 하나만 더 알려주세요.<br>그 경험에 대해서도 AI가 질문 하나를 드릴게요.</p></div>
+          <div class="interview-count" aria-hidden="true"><i class="segment filled"></i><i class="segment filled"></i><i class="segment filled"></i><span>3 / 3</span></div>
+          <form id="additionalForm" class="flow-form"><div class="field"><label for="additionalExperience">추가 경험 또는 활동 <span class="optional">(있다면 입력)</span></label>
+            <textarea id="additionalExperience" class="flow-textarea large" maxlength="4000" placeholder="예시) 동아리에서 홍보 포스터를 제작하거나, 아르바이트에서 고객 응대를 담당했어요."></textarea>
+            <p class="flow-note">새로운 경험이 없다면 아래 ‘추가 경험 없어요’를 눌러 지금까지의 내용으로 분석할 수 있어요.</p></div>
+            <button id="additionalBtn" class="submit" type="submit">추가 경험으로 AI 질문받기 →</button>
+            <button id="skipAdditionalBtn" class="outlined-btn" type="button">추가 경험 없어요 · 바로 분석하기</button>
+            <p id="additionalStatus" class="flow-status" role="status" aria-live="polite"></p>
+            <button id="backToQuestion1Btn" type="button" class="subtle-link">← 첫 번째 답변 수정하기</button>
+          </form>
+        </div>
+
+        <div id="screenQuestion2" class="flow-screen" aria-labelledby="question2Title">
+          <div class="flow-kicker">04 · 두 번째 꼬리질문</div>
+          <div class="flow-head"><h2 id="question2Title">마지막 질문이에요 🌱</h2><p>추가로 작성한 경험을 바탕으로 한 가지 더 여쭤볼게요.</p></div>
+          <div class="interview-question"><span class="q-tag">CHEMI AI · 질문 2 / 2</span><p id="secondQuestionText"></p></div>
+          <form id="answer2Form" class="flow-form"><div class="field"><label for="secondAnswer">나의 답변 <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="secondAnswer" class="flow-textarea" maxlength="1600" required placeholder="예시) 포스터 디자인을 맡아서 직접 시안을 만들고 팀원 피드백을 반영했어요."></textarea></div>
+            <button id="finalAnalyzeBtn" type="submit" class="submit">AI 핵심역량 분석 결과 보기 →</button>
+            <p id="question2Status" class="flow-status" role="status" aria-live="polite"></p>
+            <button id="backToAdditionalBtn" type="button" class="subtle-link">← 추가 경험 수정하기</button>
+          </form>
+        </div>
+
+        <div id="screenResult" class="flow-screen" aria-labelledby="resultsTitle">
+          <div class="flow-kicker">AI 경험 인터뷰 완료</div>
+          <div class="result-header"><div class="result-bubble" aria-hidden="true">✦</div><div class="flow-head" style="margin:0"><h2 id="resultsTitle">나의 핵심역량을 발견했어요!</h2><p>작성한 경험과 답변을 바탕으로 찾은 강점이에요.</p></div></div>
+          <div class="ai-results-always" aria-live="polite" aria-label="AI 핵심역량 분석 결과">
+            <p id="aiSummary" class="ai-summary"></p>
+            <div id="skillList" class="skill-list"></div>
+            <p id="aiCaution" class="ai-caution"></p>
+          </div>
+          <p id="storedAnalysisStatus" class="stored-result-status" role="status" aria-live="polite"></p>
+          <button id="finishCompetencyBtn" class="submit" type="button" style="margin-top:24px">핵심역량 완료 <span aria-hidden="true">→</span></button>
+          <p class="flow-note" style="text-align:center;margin:10px 0 16px">완료하면 공모전 탐색 화면으로 이동해요.</p>
+          <button id="restartInterviewBtn" class="outlined-btn" type="button" style="margin-top:24px">← 경험을 수정하고 다시 분석하기</button>
+          <button id="resultProfileBtn" class="subtle-link" type="button">기본 정보 수정하기</button>
+        </div>
+        <div id="screenContest" class="flow-screen" aria-labelledby="contestTitle">
+          <div class="contest-topbar">
+            <div class="contest-logo"><span class="brand-mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" fill="white"/><circle cx="16" cy="8" r="4" fill="#c9f3db"/><circle cx="8" cy="16" r="4" fill="#c9f3db"/><circle cx="16" cy="16" r="4" fill="white"/></svg></span>케미 <small>CHEMI</small></div>
+            <span class="contest-top-tag">✦ 공모전 탐색</span>
+          </div>
+          <div class="contest-layout">
+            <div class="contest-intro">
+              <div class="contest-overline">FIND YOUR NEXT CHALLENGE</div>
+              <h2 id="contestTitle">함께 도전할 공모전을 찾아봐요 ✨</h2>
+              <p>핵심역량 분석을 마쳤어요.</p>
+            </div>
+            <div class="contest-profile" id="contestProfileBox" hidden>
+              <div class="contest-profile-icon" aria-hidden="true">✦</div>
+              <div class="contest-profile-info"><strong id="contestProfileTitle">나의 핵심역량</strong><p>앞서 AI가 경험에서 발견한 강점</p></div>
+              <div id="contestSkillTags" class="contest-skill-tags"></div>
+            </div>
+            <div class="contest-tools">
+              <div class="contest-tools-title"><h3>공모전 둘러보기</h3><button id="refreshContestsBtn" class="contest-refresh" type="button" title="강원대학교 공모안내 최신 목록 가져오기">↻ 새로고침</button></div>
+              <label class="contest-search" for="contestSearch"><span aria-hidden="true">⌕</span><input id="contestSearch" type="search" placeholder="분야, 주제, 역할 검색" autocomplete="off" aria-label="공모전 검색"></label>
+            </div>
+            <div class="contest-control-row">
+              <div id="contestFilters" class="contest-filters" role="group" aria-label="공모전 분야 필터">
+                <button type="button" class="contest-filter active" data-category="전체" aria-pressed="true">전체</button>
+                <button type="button" class="contest-filter" data-category="AI·개발" aria-pressed="false">AI·개발</button>
+                <button type="button" class="contest-filter" data-category="기획·아이디어" aria-pressed="false">기획·아이디어</button>
+                <button type="button" class="contest-filter" data-category="디자인" aria-pressed="false">디자인</button>
+                <button type="button" class="contest-filter" data-category="지역·사회" aria-pressed="false">지역·사회</button>
+                <button type="button" class="contest-filter" data-category="기타" aria-pressed="false">기타</button>
+              </div>
+              <div class="contest-sort-row" role="group" aria-label="공모전 정렬 방식">
+                <button id="relatedSortBtn" class="contest-sort-button" type="button" aria-pressed="false" title="우리 핵심역량과 관련된 순서로 정렬">관련순</button>
+                <button id="newestSortBtn" class="contest-sort-button active" type="button" aria-pressed="true" title="강원대학교 게시글 등록일이 최신인 순서">최신순</button>
+              </div>
+            </div>
+            <p id="sortHint" class="contest-sort-hint" role="status" aria-live="polite" hidden></p>
+            <p id="contestRefreshStatus" class="contest-refresh-status" role="status" aria-live="polite">강원대학교 공모안내 목록을 확인하려면 새로고침을 눌러 주세요.</p>
+            <p id="contestCount" class="contest-count" role="status" aria-live="polite"></p>
+            <div id="contestGrid" class="contest-grid"></div>
+            <div class="contest-more-area"><button id="moreContestsBtn" class="contest-more-btn" type="button" aria-controls="contestGrid" aria-expanded="false" hidden>공모전 더보기</button></div>
+            <p id="contestEmpty" class="contest-empty" hidden>검색 결과가 없어요. 다른 키워드를 입력하거나 새로고침해 보세요.</p>
+            <!-- Matching sections moved below contest cards and the More button. Desktop: two columns; mobile: stacked. -->
+            <div class="match-panels-grid" id="matchPanelsRow" hidden>
+              <section class="match-consent-panel" id="matchSettings" aria-labelledby="matchSettingsTitle" hidden>
+              <h3 id="matchSettingsTitle">실제 회원과 팀원 매칭</h3>
+              <p class="match-subline">동의하면 <strong>닉네임 · 전공 · 핵심역량 이름 · 선택한 관심 분야</strong>만 로그인한 다른 매칭 참여자에게 표시됩니다. 이메일·경험 원문·AI 판단 근거는 공개하지 않습니다. 언제든 참여를 철회할 수 있어요.</p>
+              <label class="match-consent-check"><input type="checkbox" id="matchParticipation"><span>실제 팀원 매칭 참여에 동의합니다 (선택)</span></label>
+              <div class="match-interests" id="matchInterestOptions" role="group" aria-label="관심 분야">
+                <label><input type="checkbox" value="AI·개발"> AI·개발</label>
+                <label><input type="checkbox" value="기획·아이디어"> 기획·아이디어</label>
+                <label><input type="checkbox" value="디자인"> 디자인</label>
+                <label><input type="checkbox" value="지역·사회"> 지역·사회</label>
+              </div>
+              <button class="match-save" id="saveMatchSettings" type="button">매칭 참여 설정 저장</button>
+              <p class="match-settings-status" id="matchSettingsStatus" role="status" aria-live="polite"></p>
+              <div class="match-check-panel">
+                <div class="match-check-head">
+                  <strong>실제 회원 매칭 상태 점검</strong>
+                  <button class="match-check-btn" id="checkMatchingBtn" type="button">상태 확인</button>
+                </div>
+                <p id="matchDiagnosticsStatus" class="match-check-notice" role="status" aria-live="polite">회원 2명 테스트 전에 상태 확인을 눌러 보세요.</p>
+                <div class="match-check-metrics" id="matchDiagnosticMetrics" hidden>
+                  <span>내 매칭 동의<strong id="diagJoined">—</strong></span>
+                  <span>다른 실제 후보<strong id="diagCandidateCount">—</strong></span>
+                  <span>보낸 요청<strong id="diagSent">—</strong></span>
+                  <span>받은 요청<strong id="diagReceived">—</strong></span>
+                </div>
+              </div>
+            </section>
+            <section class="match-request-panel" id="matchRequestPanel" aria-labelledby="matchRequestTitle" hidden>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+                <h3 id="matchRequestTitle" style="margin:0">팀원 매칭 요청</h3>
+                <button type="button" class="match-save" id="refreshMatchRequests">요청 새로고침</button>
+              </div>
+              <p class="match-subline">실제 회원에게 보낸 요청과 받은 요청을 확인할 수 있어요. 가상 팀원에게 보낸 요청은 <strong>시연용</strong>으로만 기록되며 상대방에게 전달되지 않아요.</p>
+              <div class="match-request-summary" id="matchRequestSummary" hidden aria-label="매칭 요청 현황">
+                <span>받은 대기 요청<strong id="requestPendingReceived">0</strong></span>
+                <span>보낸 대기 요청<strong id="requestPendingSent">0</strong></span>
+                <span>수락된 연결<strong id="requestAcceptedTotal">0</strong></span>
+              </div>
+              <div class="match-request-tabs" role="group" aria-label="요청 방향 선택">
+                <button class="match-request-tab" type="button" id="receivedRequestsTab" aria-pressed="true">받은 요청 <span id="receivedRequestsCount">0</span></button>
+                <button class="match-request-tab" type="button" id="sentRequestsTab" aria-pressed="false">보낸 요청 <span id="sentRequestsCount">0</span></button>
+              </div>
+              <p class="match-request-feedback" id="matchRequestFeedback" role="status" aria-live="polite"></p>
+              <div class="match-request-list" id="matchRequestList" role="status" aria-live="polite">요청 목록을 불러오는 중이에요.</div>
+              </section>
+            </div>
+            <p class="contest-disclaimer" id="contestDisclaimer">처음 표시되는 4개 항목은 시연용 샘플입니다. ↻ 새로고침을 누르면 <strong>강원대학교 공식 공모안내 게시판</strong>의 공개 목록을 가져옵니다. 학교 게시판의 모든 글이 참가 가능한 공모전은 아니며, 모집 여부·지원 자격·마감일은 반드시 원문에서 확인해 주세요.</p>
+            <button id="backToResultBtn" class="contest-back" type="button">← 내 핵심역량 다시 보기</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Step 14: details from the existing recommended candidate payload; no private profile lookup. -->
+  <div class="member-overlay" id="memberProfileOverlay" hidden>
+    <section class="member-dialog" role="dialog" aria-modal="true" aria-labelledby="memberDialogTitle" aria-describedby="memberDialogCaution" tabindex="-1">
+      <button class="member-close" id="memberDialogClose" type="button" aria-label="팀원 상세 프로필 닫기">×</button>
+      <div class="member-head">
+        <div class="member-large-avatar" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.3 3.4-7 8-7s8 2.7 8 7"/></svg></div>
+        <div class="member-identity">
+          <span id="memberDialogType" class="member-type">팀원 유형</span>
+          <h2 id="memberDialogTitle">팀원 프로필</h2>
+          <p class="member-meta" id="memberDialogMeta"></p>
+        </div>
+        <div class="member-score-panel" aria-label="궁합 점수">
+          <strong id="memberDialogScore">—</strong>
+          <span id="memberDialogScoreType">예비 궁합</span>
+        </div>
+      </div>
+      <div class="member-context"><strong>함께 도전할 공모전</strong><span id="memberDialogContest"></span></div>
+      <div class="member-section">
+        <h3>핵심역량 비교</h3>
+        <div class="member-skill-comparison">
+          <section class="member-skill-col" aria-label="내 핵심역량"><h3>나의 핵심역량</h3><div class="member-chip-wrap" id="memberDialogMySkills"></div></section>
+          <section class="member-skill-col" aria-label="추천 팀원 핵심역량"><h3>추천 팀원의 핵심역량</h3><div class="member-chip-wrap" id="memberDialogTheirSkills"></div></section>
+        </div>
+      </div>
+      <section class="member-section"><h3>관심 분야</h3><div class="member-chip-wrap" id="memberDialogInterests"></div></section>
+      <section class="member-section"><h3>추천 이유</h3><p class="member-why" id="memberDialogReason"></p></section>
+      <section class="member-section" id="memberDialogFactorsSection" hidden>
+        <h3>추천 점수 계산 근거 <span class="member-muted">(잠정 평가)</span></h3>
+        <div class="member-factor-list" id="memberDialogFactors"></div>
+        <p class="member-evidence-note" id="memberDialogEvidenceNote"></p>
+      </section>
+      <section class="member-section" id="memberDialogBioSection" hidden><h3>시연용 자기소개</h3><p class="member-muted" id="memberDialogBio"></p></section>
+      <p class="member-disclaimer" id="memberDialogCaution">궁합점수는 제한된 역량 정보와 공모전 분야에 기반한 잠정 추정치로, 실제 협업 성과나 개인의 능력을 검증한 결과가 아닙니다. 실제 회원의 이메일, 경험 원문, AI 판단 근거는 공개하지 않아요.</p>
+      <div class="member-actions">
+        <button type="button" class="member-outline-btn" id="memberDialogBack">목록으로 돌아가기</button>
+        <button type="button" class="member-primary-btn" id="memberDialogInvite" hidden>이 팀원에게 매칭 요청</button>
+        <div id="memberDialogInviteWrap" class="member-invite-wrap" hidden>
+          <label for="memberDialogMessage">요청 메시지 (선택, 최대 160자)</label>
+          <textarea id="memberDialogMessage" maxlength="160" placeholder="공모전에 함께 참여하고 싶어요."></textarea>
+          <p id="memberDialogInviteStatus" class="member-invite-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      let cloudMode = false;
+      let signedIn = false;
+      let currentEmail = '';
+      let cachedAnalysis = null;
+      let authMode = 'login';
+      const profileKey = 'chemi-demo-profile-v1';
+      const experienceKey = 'chemi-experience-v1';
+      const $ = id => document.getElementById(id);
+      const trim = v => String(v ?? '').trim();
+      const profileForm = $('profileForm');
+      const intro = $('intro');
+      const fields = ['nickname','university','major','grade','email'];
+      const fieldEls = Object.fromEntries(fields.map(k => [k, $(k)]));
+      const requiredMessages = {
+        nickname:'이름 또는 닉네임을 입력해 주세요.',
+        university:'대학교를 입력해 주세요.',
+        major:'학과 또는 전공을 입력해 주세요.',
+        grade:'학년을 선택해 주세요.',
+        email:'올바른 이메일 형식으로 입력해 주세요.'
+      };
+      const screenNames = ['Experience','Question1','Additional','Question2','Result','Contest'];
+      const screens = Object.fromEntries(screenNames.map(name => [name, $('screen' + name)]));
+      const state = {initial_experience:'',first_question:'',first_answer:'',additional_experience:'',second_question:'',second_answer:'',competencies:[]};
+      let busy = false;
+
+      function validField(k) {
+        const value = trim(fieldEls[k].value);
+        const valid = k==='email' ? (!value || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) : !!value;
+        fieldEls[k].setAttribute('aria-invalid', String(!valid));
+        $(k+'-error').textContent = valid ? '' : requiredMessages[k];
+        return valid;
+      }
+      fields.forEach(k => {
+        const el = fieldEls[k];
+        el.addEventListener('blur', () => validField(k));
+        el.addEventListener(k==='grade' ? 'change' : 'input', () => {
+          if (el.getAttribute('aria-invalid')==='true') validField(k);
+        });
+      });
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(profileKey) || 'null');
+        if (saved && typeof saved==='object') fields.forEach(k => { if(typeof saved[k]==='string') fieldEls[k].value=saved[k]; });
+        const exp = sessionStorage.getItem(experienceKey);
+        if (exp) $('experience').value=exp;
+      } catch (_) { /* Some browser configurations disable sessionStorage. */ }
+
+      const labels = {Profile:'01 기본 정보', Experience:'02 경험과 활동', Question1:'03 AI 꼬리질문', Additional:'04 추가 경험', Question2:'05 AI 꼬리질문', Result:'06 핵심역량', Contest:'07 공모전 탐색'};
+      function navigate(name, focusId) {
+        profileForm.classList.toggle('hide', name!=='Profile');
+        intro.classList.toggle('hide', name!=='Profile');
+        screenNames.forEach(s => screens[s].classList.toggle('show', s===name));
+        document.querySelector('.page').classList.toggle('contest-mode', name==='Contest');
+        $('stepLabel').textContent = labels[name];
+        document.title = '케미 CHEMI | '+ labels[name].split(' ').slice(1).join(' ');
+        window.scrollTo({top:0, behavior:'auto'});
+        if (focusId) $(focusId).focus({preventScroll:true});
+      }
+      function status(id, message, error=false) {
+        $(id).textContent = message;
+        $(id).classList.toggle('error', error);
+      }
+      function setBusy(btn, pending, waitLabel) {
+        busy = pending;
+        if(pending){btn.dataset.previous=btn.innerHTML;btn.textContent=waitLabel;btn.disabled=true;}
+        else {btn.innerHTML=btn.dataset.previous || btn.innerHTML;btn.disabled=false;}
+      }
+      function ensureServer(id){
+        if (location.protocol==='file:') {
+          status(id, 'HTML 파일을 더블클릭하면 AI 기능이 작동하지 않아요. 먼저 시작하기_Windows.bat을 실행하고 http://127.0.0.1:8000 에 접속해 주세요.', true);
+          return false;
+        }
+        return true;
+      }
+      async function apiCall(path, method='GET', body=null) {
+        const response = await fetch(path, {
+          method, credentials:'same-origin', cache:'no-store',
+          headers:{'Content-Type':'application/json','X-CHEMI-Request':'1'},
+          ...(body===null?{}:{body:JSON.stringify(body)})
+        });
+        let data;
+        try { data = await response.json(); } catch (_) {throw new Error('서버 응답을 읽지 못했어요. 서버 실행 상태를 확인해 주세요.');}
+        if (!response.ok) throw new Error(data.error || '요청에 실패했어요.');
+        return data;
+      }
+      async function sendAPI(path, body) {
+        const response = await fetch(path, {method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CHEMI-Request':'1'},body:JSON.stringify(body)});
+        let data;
+        try { data = await response.json(); } catch (_) { throw new Error('서버 응답을 읽지 못했습니다. 실행 중인 서버를 확인해 주세요.'); }
+        if (!response.ok) throw new Error(data.error || 'AI 요청에 실패했습니다. 다시 시도해 주세요.');
+        return data;
+      }
+      async function runRequest(btn, statusId, text, func) {
+        if(busy) return;
+        setBusy(btn,true,text);
+        status(statusId, 'OpenAI API와 통신 중이에요...');
+        try { await func(); status(statusId,''); }
+        catch (err) { status(statusId, err?.message || '요청에 실패했습니다. 다시 시도해 주세요.', true); }
+        finally {setBusy(btn,false);}
+      }
+      function resetFollowingInitial() {
+        state.first_question=''; state.first_answer=''; state.additional_experience=''; state.second_question=''; state.second_answer='';
+        $('firstAnswer').value=''; $('additionalExperience').value=''; $('secondAnswer').value='';
+      }
+      profileForm.addEventListener('submit', async e => {
+        e.preventDefault(); if(busy) return;
+        const validations=fields.map(k=>[k,validField(k)]);
+        const invalid=validations.find(([,ok])=>!ok);
+        if(invalid) { $('profileStatus').textContent='필수 입력 사항을 확인한 뒤 다시 눌러 주세요.'; $('profileStatus').style.color='#c83f55';fieldEls[invalid[0]].focus(); return; }
+        const profile=Object.fromEntries(fields.map(k=>[k,trim(fieldEls[k].value)]));
+        if(cloudMode){
+          if(!$('storageConsent').checked) { $('profileStatus').textContent='온라인 저장 및 AI 분석 활용 동의가 필요해요.'; $('profileStatus').style.color='#c83f55'; return; }
+          setBusy($('nextButton'),true,'안전하게 저장하는 중...');
+          try {
+            await apiCall('/api/me/profile','PUT',{...profile,consent:true});
+          } catch(err) {
+            $('profileStatus').textContent=err.message; $('profileStatus').style.color='#c83f55';
+            setBusy($('nextButton'),false);return;
+          }
+          setBusy($('nextButton'),false);
+        } else {
+          try{sessionStorage.setItem(profileKey, JSON.stringify(profile));}catch(_){}
+        }
+        $('profileStatus').textContent=cloudMode?'온라인 프로필 저장 완료!':'로컬 시연 모드 · 온라인에 저장되지 않아요.';
+        $('profileStatus').style.color='#277f5b';
+        navigate('Experience','experience');
+      });
+      $('editProfileBtn').addEventListener('click',()=>{if(!busy)navigate('Profile','nickname')});
+      $('resultProfileBtn').addEventListener('click',()=>{if(!busy)navigate('Profile','nickname')});
+      $('backToExperienceBtn').addEventListener('click',()=>{if(!busy)navigate('Experience','experience')});
+      $('backToQuestion1Btn').addEventListener('click',()=>{if(!busy)navigate('Question1','firstAnswer')});
+      $('backToAdditionalBtn').addEventListener('click',()=>{if(!busy)navigate('Additional','additionalExperience')});
+      $('restartInterviewBtn').addEventListener('click',()=>{if(!busy)navigate('Experience','experience')});
+      $('finishCompetencyBtn').addEventListener('click',()=>{if(!busy){updateContestProfile(); renderContests(); navigate('Contest','contestSearch');loadCachedContests();loadMatchSettings();}});
+      $('backToResultBtn').addEventListener('click',()=>{if(!busy)navigate('Result','finishCompetencyBtn')});
+
+      $('experienceForm').addEventListener('submit', async e=>{
+        e.preventDefault(); if(busy) return;
+        const val=trim($('experience').value);
+        if(!val){status('experienceStatus','첫 번째 경험이나 활동을 입력해 주세요.',true);$('experience').focus();return;}
+        if(!ensureServer('experienceStatus')) return;
+        await runRequest($('startInterviewBtn'),'experienceStatus','질문 만드는 중...',async()=>{
+          const data=await sendAPI('/api/interview/question',{stage:1,initial_experience:val});
+          state.initial_experience=val; resetFollowingInitial();
+          state.first_question=data.question;
+          $('firstQuestionText').textContent=data.question;
+          try{sessionStorage.setItem(experienceKey,val)}catch(_){}
+          navigate('Question1','firstAnswer');
+        });
+      });
+      $('answer1Form').addEventListener('submit',e=>{
+        e.preventDefault();if(busy)return;
+        const val=trim($('firstAnswer').value);
+        if(!val){status('question1Status','AI 질문에 대한 답변을 입력해 주세요.',true);$('firstAnswer').focus();return;}
+        state.first_answer=val;
+        state.additional_experience='';state.second_question='';state.second_answer='';
+        $('secondAnswer').value='';
+        navigate('Additional','additionalExperience');
+      });
+      $('additionalForm').addEventListener('submit',async e=>{
+        e.preventDefault();if(busy)return;
+        const val=trim($('additionalExperience').value);
+        if(!val){status('additionalStatus','추가 경험을 입력하거나 ‘추가 경험 없어요’를 눌러 주세요.',true);return;}
+        if(!ensureServer('additionalStatus'))return;
+        await runRequest($('additionalBtn'),'additionalStatus','질문 만드는 중...',async()=>{
+          const data=await sendAPI('/api/interview/question',{
+            stage:2, initial_experience:state.initial_experience,
+            first_question:state.first_question, first_answer:state.first_answer,
+            additional_experience:val
+          });
+          state.additional_experience=val;state.second_question=data.question;state.second_answer='';
+          $('secondQuestionText').textContent=data.question;
+          $('secondAnswer').value='';
+          navigate('Question2','secondAnswer');
+        });
+      });
+      async function finalAnalysis(btn, statusId, skipAdditional) {
+        if(busy || !ensureServer(statusId))return;
+        await runRequest(btn,statusId,'역량 분석 중...',async()=>{
+          const request={...state};
+          if(skipAdditional){request.additional_experience='';request.second_question='';request.second_answer='';}
+          const data=await sendAPI('/api/interview/analyze',request);
+          renderResults(data);
+          $('storedAnalysisStatus').textContent=data.saved?'✓ 이 분석 결과와 경험·활동 기록이 내 계정에 저장되었어요.':'로컬 시연 모드 · 분석 결과를 온라인에 저장하지 않았어요.';
+          if(data.saved) {cachedAnalysis=data; $('restoreAnalysisBtn').hidden=false;}
+          if(skipAdditional){state.additional_experience='';state.second_question='';state.second_answer='';}
+          navigate('Result');
+        });
+      }
+      $('skipAdditionalBtn').addEventListener('click',()=>finalAnalysis($('skipAdditionalBtn'),'additionalStatus',true));
+      $('answer2Form').addEventListener('submit',async e=>{
+        e.preventDefault();if(busy)return;
+        const val=trim($('secondAnswer').value);
+        if(!val){status('question2Status','마지막 질문에 답변을 입력해 주세요.',true);$('secondAnswer').focus();return;}
+        state.second_answer=val;
+        await finalAnalysis($('finalAnalyzeBtn'),'question2Status',false);
+      });
+      function renderResults(data){
+        state.competencies=Array.isArray(data.competencies) ? data.competencies : [];
+        matchVersion++;
+        teammateCache.clear(); teammatePending.clear(); teammateAiPending.clear();
+        $('aiSummary').textContent=data.summary || '작성한 활동에서 발견한 강점이에요.';
+        const list=$('skillList');list.replaceChildren();
+        if (!Array.isArray(data.competencies) || !data.competencies.length) {
+          const empty=document.createElement('p');empty.className='empty-skill';empty.textContent='현재 답변만으로는 역량을 구체적으로 정리하기 어려워요. 경험을 조금 더 자세히 작성해 보세요.';list.append(empty);
+        } else {
+          data.competencies.forEach(skill=>{
+            const card=document.createElement('article');card.className='skill-card';
+            const head=document.createElement('div');head.className='skill-top';
+            const name=document.createElement('span');name.className='skill-name';name.textContent=skill.name || '강점';
+            const level=document.createElement('span');level.className='evidence-label';level.textContent='근거 수준 · '+(skill.evidence_level||'추정');
+            head.append(name,level);
+            const reason=document.createElement('p');reason.className='skill-evidence';reason.textContent=skill.evidence||'활동에서 나타난 경험을 기반으로 분석했어요.';
+            card.append(head,reason);list.append(card);
+          });
+        }
+        $('aiCaution').textContent=data.caution||'작성한 경험을 바탕으로 한 예비 분석이며 실제 능력의 객관적 검증은 아니에요.';
+      }
+
+      // 화면 설계를 위한 예시 데이터입니다. 실제 공모전 모집 정보나 추천 결과가 아닙니다.
+      const sampleContests = [
+        {category:'AI·개발', title:'AI·소프트웨어 아이디어 공모전', date:'2026-10-23', description:'새로운 기술로 일상의 문제를 해결하는 아이디어를 팀으로 구체화해 보세요.', roles:['AI 개발','프론트엔드','기획'], detail:'문제 정의부터 프로토타입까지 팀원별 강점을 활용하는 예시 프로젝트예요.'},
+        {category:'기획·아이디어', title:'캠퍼스 생활 문제 해결 공모전', date:'2026-11-02', description:'학교에서 느낀 불편함을 발견하고 실제로 필요한 서비스를 기획해 보세요.', roles:['서비스 기획','디자인','발표'], detail:'학생 사용자 조사와 서비스 설계를 함께하는 팀을 가정한 화면 예시예요.'},
+        {category:'디자인', title:'사용자 경험·서비스 디자인 공모전', date:'2026-09-11', description:'사용자에게 더 쉬운 서비스 경험을 제안하고 화면으로 표현하는 분야예요.', roles:['UI/UX','리서치','개발'], detail:'사용성 조사, 와이어프레임, 서비스 시연을 협업하는 예시예요.'},
+        {category:'지역·사회', title:'지역사회 혁신 아이디어 공모전', date:'2026-11-04', description:'지역 문제를 발굴하고 데이터와 현장 관찰을 통해 개선안을 만들어 보세요.', roles:['데이터 분석','현장 조사','기획'], detail:'지역 현황 조사와 해결책 제안을 협력하는 프로젝트를 예시로 보여드려요.'},
+        {category:'AI·개발', title:'공공데이터 분석 활용 경진대회', date:'2026-10-29', description:'공공데이터에서 유용한 발견을 만드는 분석 프로젝트예요.', roles:['데이터 분석','개발'], detail:'실제 모집 공고가 아닌 화면 동작 확인용 예시입니다.'},
+        {category:'디자인', title:'브랜드 시각디자인 공모전', date:'2026-11-05', description:'시각 디자인으로 메시지를 효과적으로 표현하는 프로젝트예요.', roles:['그래픽 디자인','기획'], detail:'실제 모집 공고가 아닌 화면 동작 확인용 예시입니다.'}
+      ];
+      // AI가 추출한 핵심역량명을 공모전 제목/분야와 비교하는 설명 가능한 로컬 매칭.
+      // 상세 본문을 수집하지 않으므로 지원 자격·모집 여부나 '실제 능력 점수'를 뜻하지 않습니다.
+      const contestDomains = {
+        'AI·개발': ['프로그래밍','프로그램','코딩','코드','개발','소프트웨어','앱','웹','인공지능','ai','머신러닝','딥러닝','데이터','파이썬','python','자바','java','알고리즘','컴퓨터','it','디지털','스마트','자동화','정보처리','분석','서버','백엔드','프론트엔드','시스템'],
+        '기획·아이디어': ['기획','아이디어','창의','발상','창업','마케팅','전략','사업','비즈니스','제안','조사','기획안','서비스 설계','프로젝트 관리','프로덕트','문제정의','리더십','발표','피칭'],
+        '디자인': ['디자인','ui','ux','시각','그래픽','포스터','일러스트','브랜딩','영상','편집','콘텐츠','미디어','웹툰','프로토타입','피그마','figma','사용자 경험'],
+        '지역·사회': ['지역','사회','봉사','환경','탄소','기후','지속가능','안전','공공','복지','관광','도시','현장조사','커뮤니티','사회공헌','의료','접근성','에너지'],
+        '기타': ['체육','운동','스포츠','문학','작문','글쓰기','예술','음악','댄스','공연']
+      };
+      const genericSkills = ['문제 해결','문제해결','협업','소통','커뮤니케이션','자기주도','학습','집중력','성실','책임','체력','끈기','자기관리','적응','시간 관리'];
+      const meaningfulIgnored = new Set(['능력','역량','경험','활동','기본','수행','참여','기술','실무','과정','관련','공모전','경진대회','대회','캠퍼스','대학교','대학생','공모','프로젝트','역할']);
+      function compactText(value) { return trim(value).toLowerCase().replace(/[^가-힣a-z0-9]/g, ''); }
+      function containsKeyword(text, keyword) {
+        // Korean inflection may surround a keyword; exclude tiny ascii abbreviations as substrings.
+        const k=compactText(keyword);
+        if (!k) return false;
+        if (/^[a-z]{1,2}$/.test(k)) return new RegExp('(?:^|[^a-z])'+k+'(?:$|[^a-z])','i').test(trim(text).toLowerCase());
+        return compactText(text).includes(k);
+      }
+      function normalizeDate(value) {
+        const m=trim(value).match(/^(20\d{2})[-./](\d{1,2})[-./](\d{1,2})/);
+        if(!m) return -1;
+        const year=Number(m[1]), month=Number(m[2]), day=Number(m[3]);
+        const date=Date.UTC(year,month-1,day);
+        const check=new Date(date);
+        if(check.getUTCFullYear()!==year||check.getUTCMonth()!==month-1||check.getUTCDate()!==day) return -1;
+        return date;
+      }
+      function competenceWeight(skill) { return skill.evidence_level==='명확'?1:skill.evidence_level==='부분적'?.83:.66; }
+      function scoreContest(contest, competencies) {
+        if (!Array.isArray(competencies) || !competencies.length) return {score:0, reason:'분석된 핵심역량 없음'};
+        const candidate=String(contest.title||'')+' '+String(contest.category||'');
+        const matched=[];
+        let strongest=0, second=0, hitWords=0;
+        for(const skill of competencies) {
+          const name=trim(skill?.name);
+          if (!name) continue;
+          // 근거 문장 전체는 활동의 맥락으로 쓰되, 특정 분야 판정은 역량명에 더 큰 비중.
+          const level=competenceWeight(skill);
+          const strengths=[];
+          for(const [category,keywords] of Object.entries(contestDomains)) {
+            const named=keywords.filter(word=>containsKeyword(name,word));
+            const evidenced=keywords.filter(word=>containsKeyword(String(skill.evidence||''),word));
+            if (!named.length && !evidenced.length) continue;
+            const categoryMatch=contest.category===category;
+            const titleMatch=keywords.some(word=>containsKeyword(contest.title||'',word)&& (named.includes(word)||evidenced.includes(word)));
+            let value=(categoryMatch?58:0)+(titleMatch?25:0);
+            // 키워드가 맞지만 카테고리·제목에 해당 단서가 없다면 점수 부여 안 함.
+            if (!categoryMatch&&!titleMatch) continue;
+            value*=level*(named.length ? 1 : .65);
+            strengths.push({value,keyword:named[0]||evidenced[0],skill:name});
+          }
+          strengths.sort((a,b)=>b.value-a.value);
+          const top=strengths[0];
+          if (top && top.value>0) {
+            if(top.value>strongest){second=strongest;strongest=top.value;}
+            else if(top.value>second){second=top.value;}
+            matched.push(top);
+          }
+          // 공고 제목에 역량의 구체적 키워드가 직접 포함될 때 작은 가점.
+          const words=name.toLowerCase().split(/[^가-힣a-z0-9]+/).filter(w=>w.length>=3&&!meaningfulIgnored.has(w));
+          if(words.some(word=>containsKeyword(contest.title||'',word))) hitWords=Math.max(hitWords,9*level);
+        }
+        // 모든 분야에 적용되는 보편 역량은 관련도 순위를 과장하지 않도록 제한.
+        const hasGeneric=competencies.some(s=>genericSkills.some(word=>containsKeyword(s?.name||'',word)));
+        const score=Math.max(0,Math.min(95,Math.round(strongest+second*.22+hitWords+(hasGeneric&&strongest>0?3:0))));
+        matched.sort((a,b)=>b.value-a.value);
+        const reason=matched.length ? `핵심역량 ‘${matched[0].skill.slice(0,22)}’과 공모전 분야·제목 연결` : '공고 제목·분야에서 일치 단서가 부족함';
+        return {score,reason};
+      }
+      let contestCategory = '전체';
+      let contestSort = 'newest';
+      let contestExpanded = false;
+      const contestInitialLimit = 4;
+      let realContests = null; // null = display explicitly marked design samples
+      let contestUpdatedAt = null;
+      let refreshRunning = false;
+      const teammateCache = new Map();
+      const teammatePending = new Set();
+      const teammateAiPending = new Set();
+      let matchVersion = 0;
+      let actualMatchEnabled = false;
+      let userMatchConfigured = false;
+      const previewMode = new URLSearchParams(location.search).get('preview') === 'contests';
+      const sourceBoard = 'https://www.kangwon.ac.kr/ko/bbs/719/list.do';
+      function applyContestData(payload) {
+        if (!payload || !Array.isArray(payload.items) || !payload.items.length) return false;
+        realContests = payload.items;
+        contestUpdatedAt = payload.updated_at || null;
+        $('contestRefreshStatus').textContent = `강원대학교 공모안내에서 ${realContests.length}건 수집됨 · 마지막 갱신 ${contestUpdatedAt ? new Date(contestUpdatedAt).toLocaleString('ko-KR') : '미확인'} (모집 상태 미확인)`;
+        $('contestRefreshStatus').classList.remove('error');
+        $('contestDisclaimer').innerHTML = '출처 · <a href="'+sourceBoard+'" target="_blank" rel="noopener noreferrer">강원대학교 공식 공모안내 게시판 ↗</a>. 게시판에 등록된 공지를 보여주며, 모집 중인 공고만 선별하지 않습니다. 지원 자격과 접수 기간은 공고 원문에서 확인하세요. 분야 분류는 제목의 키워드 기반입니다.';
+        contestExpanded = false;
+        renderContests(); return true;
+      }
+      async function loadCachedContests() {
+        if (location.protocol==='file:') return;
+        try {
+          const response=await fetch('/api/contests',{cache:'no-store'});
+          if (response.ok) applyContestData(await response.json());
+        } catch (_) { /* Never hide samples or previous results because local server is unavailable. */ }
+      }
+      async function refreshContestList() {
+        if (refreshRunning) return;
+        if (location.protocol==='file:') { $('contestRefreshStatus').textContent='서버가 필요해요. RUN_CHEMI_WINDOWS.bat을 실행한 뒤 http://127.0.0.1:8000 으로 접속하세요.'; $('contestRefreshStatus').classList.add('error'); return; }
+        refreshRunning=true;
+        const btn=$('refreshContestsBtn');btn.disabled=true;btn.textContent='갱신 중...';
+        $('contestRefreshStatus').textContent='강원대학교 robots.txt 허용 여부를 확인하고 공식 공모안내 목록을 가져오고 있어요...';
+        $('contestRefreshStatus').classList.remove('error');
+        try {
+          const resp=await fetch('/api/contests/refresh',{method:'POST',headers:{'X-CHEMI-Request':'1'}});
+          const data=await resp.json();
+          if (!resp.ok) throw new Error(data.error || '목록 갱신에 실패했어요.');
+          if (!applyContestData(data)) throw new Error('게시판에서 수집된 게시물이 없습니다.');
+        } catch(e) {
+          $('contestRefreshStatus').textContent=`새로고침 실패: ${e.message}. ${realContests?.length ? '마지막 정상 수집 목록을 유지해요.' : '현재 예시 목록을 유지해요.'}`;
+          $('contestRefreshStatus').classList.add('error');
+        } finally {refreshRunning=false;btn.disabled=false;btn.textContent='↻ 새로고침';}
+      }
+      $('refreshContestsBtn').addEventListener('click', refreshContestList);
+      function updateContestProfile() {
+        const profileBox = $('contestProfileBox');
+        const tags = $('contestSkillTags');
+        tags.replaceChildren();
+        const competencies = state.competencies.filter(s=>s && typeof s.name==='string' && s.name.trim()).slice(0,4);
+        if (!competencies.length) { profileBox.hidden=true; return; }
+        profileBox.hidden=false;
+        const nickname = trim(fieldEls.nickname.value);
+        const isPreview=new URLSearchParams(location.search).get('preview')==='contests' && state.preview_demo;
+        $('contestProfileTitle').textContent=isPreview?'미리보기용 예시 핵심역량':(nickname ? nickname+'님의 핵심역량' : '나의 핵심역량');
+        $('contestProfileBox').querySelector('.contest-profile-info p').textContent=isPreview?'실제 인터뷰 결과가 아닌 정렬 기능 확인용 예시입니다.':'앞서 AI가 경험에서 발견한 강점';
+        competencies.forEach(skill=>{const tag=document.createElement('span');tag.textContent=skill.name;tags.append(tag);});
+      }
+      function contestMatchKey(c) {return String(c.url || `${c.title||'무제'}|${c.date||''}`).slice(0,340);}
+      function matchPayload(entries, mode) {
+        return {
+          mode,
+          competencies:state.competencies.filter(s=>s&&typeof s.name==='string').slice(0,5).map(s=>({
+            name:String(s.name||'').slice(0,100), evidence:String(s.evidence||'').slice(0,200), evidence_level:s.evidence_level||'추정'})),
+          contests:entries.map(e=>({id:contestMatchKey(e.contest),title:e.contest.title||'제목 없음',category:e.contest.category||'기타'}))
+        };
+      }
+      async function sendMatchRequest(payload) {
+        const response=await fetch('/api/team/match',{method:'POST',headers:{'Content-Type':'application/json','X-CHEMI-Request':'1'},body:JSON.stringify(payload)});
+        let data;try{data=await response.json()}catch(_){throw new Error('팀원 매칭 서버 응답을 읽을 수 없어요.')}
+        if(!response.ok)throw new Error(data.error || '팀원 추천 중 문제가 발생했어요.');
+        return data;
+      }
+      function scheduleTeammates(entries) {
+        if (!state.competencies.some(s=>trim(s?.name)) || location.protocol==='file:') return;
+        const fresh=entries.filter(e=>{const id=contestMatchKey(e.contest);return !teammateCache.has(id)&&!teammatePending.has(id);}).slice(0,4);
+        if(!fresh.length)return;
+        const version=matchVersion;
+        const ids=fresh.map(e=>contestMatchKey(e.contest));
+        ids.forEach(id=>teammatePending.add(id));
+        (async()=>{
+          try{
+            const data=await sendMatchRequest(matchPayload(fresh,'estimate'));
+            if(version!==matchVersion)return;
+            for(const match of data.matches||[]) {
+              if(ids.includes(match.contest_id))teammateCache.set(match.contest_id,match);
+            }
+            for(const id of ids){if(!teammateCache.has(id))teammateCache.set(id,{error:data.hint||'현재 매칭 가능한 후보가 없어요.'});}
+            renderContests();
+            // 미리보기에서는 API 비용 없이 예비 매칭만 확인합니다.
+            if(data.ai_available && (data.matches||[]).length && !previewMode){
+              const aiEntries=fresh.filter(e=>!teammateAiPending.has(contestMatchKey(e.contest)));
+              aiEntries.forEach(e=>teammateAiPending.add(contestMatchKey(e.contest)));
+              if(aiEntries.length){
+                try {
+                  const ai=await sendMatchRequest(matchPayload(aiEntries,'ai'));
+                  if(version!==matchVersion)return;
+                  for(const match of ai.matches||[]) {
+                    if(ids.includes(match.contest_id))teammateCache.set(match.contest_id,match);
+                  }
+                  renderContests();
+                }catch(err){
+                  // AI 통신 실패 시 미리 계산한 예비 점수는 유지합니다.
+                  console.info('AI 궁합 계산이 어려워 예비 결과를 유지했어요.',err?.message||'');
+                }
+              }
+            }
+          }catch(err){
+            if(version!==matchVersion)return;
+            ids.forEach(id=>teammateCache.set(id,{error:'팀원 정보를 읽지 못했어요.'}));
+            renderContests();
+          }finally{
+            ids.forEach(id=>{teammatePending.delete(id);teammateAiPending.delete(id)});
+            if(version===matchVersion)renderContests();
+          }
+        })();
+      }
+
+      // Step 14: profile details are rendered only from already-authorized matching results.
+      // Real members expose exactly: nickname, major, skill names and opted-in interests.
+      let memberDialogContext = null;
+      let memberDialogPreviousFocus = null;
+      const invitedMatches = new Set();
+      const sentRequestStatus = new Map();
+      // Step 22: mock requests never reach Supabase. Keep them isolated per browser tab/account.
+      let demoRequestOwner='local';
+      let demoSentRequests=[];
+      const demoRequestStoragePrefix='chemi-demo-match-requests-v1:';
+      function demoStorageKey(){return demoRequestStoragePrefix+demoRequestOwner;}
+      function setDemoRequestOwner(owner){
+        demoRequestOwner=String(owner||'local').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,90)||'local';
+        demoSentRequests=[];
+        try{
+          const records=JSON.parse(sessionStorage.getItem(demoStorageKey())||'[]');
+          if(Array.isArray(records))demoSentRequests=records.filter(r=>r && r.is_demo===true && typeof r.contest_id==='string' && typeof r.recipient_id==='string').slice(0,40);
+        }catch(_){/* Storage disabled; mock still works in memory. */}
+      }
+      function saveDemoSentRequests(){
+        try{sessionStorage.setItem(demoStorageKey(),JSON.stringify(demoSentRequests.slice(0,40)));}catch(_){/* Storage disabled. */}
+      }
+      let requestTab='received';
+      let lastRequestRows=[];
+      let requestLoading=false;
+      const requestStatusLabels={pending:'응답 대기',accepted:'수락 · 연결됨',declined:'거절됨',cancelled:'취소됨'};
+      function requestButtonLabel(status){return ({pending:'응답 대기 중',accepted:'매칭 성사 ✓',declined:'요청 거절됨',cancelled:'요청 취소됨'})[status]||'요청 기록 있음';}
+      function invitationKey(member, contest) {return `${String(member.id)}|${contestMatchKey(contest)}`;}
+      function createMemberChips(id, labels, mine=false) {
+        const wrap=$(id);wrap.replaceChildren();
+        const entries=[...new Set((Array.isArray(labels)?labels:[]).filter(v=>typeof v==='string'&&v.trim()).map(v=>v.trim().slice(0,90)))];
+        if(!entries.length){const empty=document.createElement('p');empty.className='member-muted';empty.textContent='등록된 정보가 없어요.';wrap.append(empty);return;}
+        for(const label of entries){const chip=document.createElement('span');chip.className='member-chip'+(mine?' mine':'');chip.textContent=label;wrap.append(chip);}
+      }
+      function isRealInviteAllowed(member) {
+        return !!(member && !member.is_synthetic && actualMatchEnabled && cloudMode && signedIn && !previewMode);
+      }
+      function demoInvitationExists(member,contest){
+        return demoSentRequests.some(r=>r.recipient_id===String(member.id) && r.contest_id===contestMatchKey(contest));
+      }
+      function sendDemoInvitation(member,contest,trigger,message=''){
+        if(!member?.is_synthetic)throw new Error('시연용 요청은 가상 인물에게만 사용할 수 있어요.');
+        if(demoInvitationExists(member,contest))return false;
+        if(!confirm(`${member.nickname}님에게 시연용 매칭 요청을 보낼까요?\n\n실제 사용자에게는 전송되지 않고 이 브라우저 탭에만 기록돼요.`))return false;
+        const request={
+          id:'demo-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),
+          is_demo:true,direction:'sent',status:'demo',
+          recipient_id:String(member.id).slice(0,90),
+          other_nickname:String(member.nickname||'가상 팀원').slice(0,50),
+          contest_id:contestMatchKey(contest),contest_title:String(contest.title||'공모전').slice(0,260),
+          message:String(message||'').slice(0,160),created_at:new Date().toISOString()
+        };
+        demoSentRequests.unshift(request);
+        demoSentRequests=demoSentRequests.slice(0,40);
+        saveDemoSentRequests();
+        if(trigger){trigger.disabled=true;trigger.textContent='시연 요청 완료 ✓';}
+        requestTab='sent';
+        if(typeof renderMatchRequests==='function')renderMatchRequests();
+        const feedback=$('matchRequestFeedback');
+        if(feedback){feedback.classList.remove('error');feedback.textContent='시연용 매칭 요청이 저장됐어요. 실제 사용자에게 전송되지 않습니다.';}
+        return true;
+      }
+      function closeMemberProfile() {
+        if($('memberProfileOverlay').hidden)return;
+        $('memberProfileOverlay').hidden=true;
+        document.body.style.overflow='';
+        memberDialogContext=null;
+        if(memberDialogPreviousFocus?.isConnected)memberDialogPreviousFocus.focus();
+        memberDialogPreviousFocus=null;
+      }
+      function openMemberProfile(contest, matching, trigger) {
+        if(!matching?.member)return;
+        const member=matching.member;
+        memberDialogContext={contest,matching};
+        memberDialogPreviousFocus=trigger||document.activeElement;
+        $('memberDialogType').textContent=member.is_synthetic?'가상 시연용 팀원':'매칭 참여에 동의한 실제 회원';
+        $('memberDialogTitle').textContent=String(member.nickname||'팀원');
+        const meta=member.is_synthetic?
+          [member.university,member.major,member.grade].filter(Boolean):
+          [member.major].filter(Boolean);
+        $('memberDialogMeta').textContent=meta.join(' · ') || '전공 정보 미등록';
+        const rawScore=Number(matching.score);
+        $('memberDialogScore').textContent=Number.isFinite(rawScore)?`${Math.min(100,Math.max(0,Math.round(rawScore)))}점`:'—';
+        $('memberDialogScoreType').textContent=matching.source==='ai'?'AI 선정 · 예비점수':'규칙 기반 예비점수';
+        $('memberDialogContest').textContent=String(contest.title||'공모전 이름 미확인');
+        createMemberChips('memberDialogMySkills',state.competencies.map(s=>s?.name),true);
+        createMemberChips('memberDialogTheirSkills',(member.skills||[]).map(s=>s?.name));
+        createMemberChips('memberDialogInterests',member.interests||[]);
+        $('memberDialogReason').textContent=String(matching.reason||'현재 공개된 역량을 바탕으로 후보를 선정했어요.');
+        const breakdown=matching.breakdown;
+        $('memberDialogFactorsSection').hidden=!breakdown;
+        const factors=$('memberDialogFactors');factors.replaceChildren();
+        if(breakdown){
+          const values=[['부족 역할 보완',breakdown.complement,35],['공모전 역할 연관',breakdown.contest_fit,30],
+            ['공개 수행 근거',breakdown.experience,20],['관심 분야',breakdown.interest,10],['공통 분야',breakdown.shared,5]];
+          values.forEach(([label,value,max])=>{
+            const row=document.createElement('div');const title=document.createElement('span');title.textContent=label;
+            const points=document.createElement('strong');points.textContent=`${Number(value)||0}/${max}`;
+            row.append(title,points);factors.append(row);
+          });
+          $('memberDialogEvidenceNote').textContent=String(breakdown.evidence_note||'')+
+            ' · 공모전 제목·분야와 공개된 역량명만으로 계산했으며 필수 자격 판정은 아니에요.';
+        }
+
+        const hasDemoBio=!!(member.is_synthetic && typeof member.bio==='string' && member.bio.trim());
+        $('memberDialogBioSection').hidden=!hasDemoBio;
+        $('memberDialogBio').textContent=hasDemoBio?member.bio:'';
+        const demo=!!member.is_synthetic;
+        const inviteAllowed=demo || isRealInviteAllowed(member);
+        $('memberDialogInvite').hidden=!inviteAllowed;
+        $('memberDialogInviteWrap').hidden=!inviteAllowed;
+        const previousStatus=demo ? (demoInvitationExists(member,contest)?'demo':null) : sentRequestStatus.get(invitationKey(member,contest));
+        $('memberDialogInvite').disabled=!!previousStatus;
+        $('memberDialogInvite').textContent=demo?(previousStatus?'시연 요청 완료 ✓':'매칭 요청 (시연)'):(previousStatus?requestButtonLabel(previousStatus):'이 팀원에게 매칭 요청');
+        $('memberDialogMessage').value='';
+        $('memberDialogInviteStatus').textContent=demo?
+          (previousStatus?'시연 요청이 이 브라우저 탭에 기록되어 있어요. 실제 전송은 없습니다.':'가상 팀원에게 보내는 목업 요청입니다. 실제 전송·알림·Supabase 저장은 하지 않아요.'):
+          (previousStatus?(previousStatus==='accepted'?'상대방이 요청을 수락했어요. 매칭 요청 영역에서 연결 상태를 확인해 주세요.':'이 공모전에 대한 요청 기록이 있어요. 같은 상대에게 재요청하는 기능은 아직 지원하지 않아요.') : '');
+        $('memberDialogInviteStatus').classList.remove('error');
+        $('memberProfileOverlay').hidden=false;
+        document.body.style.overflow='hidden';
+        $('memberDialogClose').focus();
+      }
+      async function sendMemberInvitation(member, contest, trigger, message='') {
+        if(!isRealInviteAllowed(member))throw new Error('실제 회원의 매칭 참여 동의가 필요해요.');
+        const key=invitationKey(member,contest);
+        if(invitedMatches.has(key))return false;
+        if(!confirm(`${member.nickname}님에게 이 공모전의 팀원 합류를 요청할까요?`))return false;
+        trigger.disabled=true;
+        try {
+          await apiCall('/api/team/request','POST',{
+            recipient_id:member.id,contest_id:contestMatchKey(contest),
+            contest_title:String(contest.title||'공모전').slice(0,260),message:String(message).slice(0,160)
+          });
+          invitedMatches.add(key);
+          sentRequestStatus.set(key,'pending');
+          trigger.textContent='응답 대기 중';
+          await loadMatchRequests();
+          return true;
+        }catch(err){trigger.disabled=false;throw err;}
+      }
+      $('memberDialogClose').addEventListener('click',closeMemberProfile);
+      $('memberDialogBack').addEventListener('click',closeMemberProfile);
+      $('memberProfileOverlay').addEventListener('click',e=>{if(e.target===$('memberProfileOverlay'))closeMemberProfile();});
+      document.addEventListener('keydown',e=>{
+        if($('memberProfileOverlay').hidden)return;
+        if(e.key==='Escape'){e.preventDefault();closeMemberProfile();return;}
+        if(e.key==='Tab'){
+          const nodes=[...$('memberProfileOverlay').querySelectorAll('button:not([hidden]):not([disabled]),textarea:not([hidden])')]
+            .filter(el=>!el.closest('[hidden]'));
+          if(!nodes.length)return;
+          const first=nodes[0],last=nodes[nodes.length-1];
+          if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+          else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+        }
+      });
+      $('memberDialogInvite').addEventListener('click',async()=>{
+        const ctx=memberDialogContext;if(!ctx)return;
+        const btn=$('memberDialogInvite');const note=$('memberDialogInviteStatus');
+        note.textContent='';note.classList.remove('error');
+        try{
+          const isDemo=!!ctx.matching.member.is_synthetic;
+          const sent=isDemo?
+            sendDemoInvitation(ctx.matching.member,ctx.contest,btn,$('memberDialogMessage').value):
+            await sendMemberInvitation(ctx.matching.member,ctx.contest,btn,$('memberDialogMessage').value);
+          if(sent){note.textContent=isDemo?'시연 요청이 저장됐어요. 실제 전송되지 않았으며 아래 보낸 요청에서 확인할 수 있어요.':'요청을 보냈어요. 아래 팀원 매칭 요청에서 상태를 확인할 수 있어요.';renderContests();}
+        }catch(err){note.classList.add('error');note.textContent=err.message||'요청 처리 중 오류가 발생했어요.';}
+      });
+
+      function teammateMatchElement(contest) {
+        const key=contestMatchKey(contest);
+        const data=teammateCache.get(key);
+        const strip=document.createElement('div');strip.className='match-strip';
+        const main=document.createElement('div');main.className='match-main';
+        const avatar=document.createElement('div');avatar.className='match-avatar';avatar.setAttribute('aria-hidden','true');
+        avatar.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4.5 21c0-4.3 3.3-7 7.5-7s7.5 2.7 7.5 7" fill="currentColor"/></svg>';
+        const info=document.createElement('div');info.className='match-person';
+        const nameRow=document.createElement('div');nameRow.className='match-name-row';
+        const name=document.createElement('strong');name.textContent=data?.member ? `1순위 · ${data.member.nickname}` : '1순위 추천 팀원';
+        nameRow.append(name);
+        if(data?.member){
+          const meta=document.createElement('span');meta.className='match-metadata';
+          meta.textContent=`${data.member.is_synthetic ? '가상 시연' : '실제 참여 회원'} · ${data.member.major}`;
+          nameRow.append(meta);
+        }
+        const tagWrap=document.createElement('div');tagWrap.className='match-skill-tags';
+        if(data?.member?.skills?.length){
+          const skillNames=data.member.skills.map(s=>trim(s?.name)).filter(Boolean);
+          skillNames.slice(0,2).forEach(skillName=>{const tag=document.createElement('span');tag.textContent=skillName;tagWrap.append(tag);});
+          if(skillNames.length>2){
+            const more=document.createElement('span');more.className='more';more.textContent=`+${skillNames.length-2}`;more.title=`추가 역량 ${skillNames.length-2}개 더 있음`;tagWrap.append(more);
+          }
+        }else{
+          const tag=document.createElement('span');tag.textContent=data?.error ? '후보 없음' : '팀원 후보 확인 중…';tagWrap.append(tag);
+        }
+        const reason=document.createElement('p');reason.className='match-reason';
+        reason.textContent=data?.reason || (data?.error ? data.error : '내 핵심역량과 공모전 분야를 비교하고 있어요.');
+        reason.title=reason.textContent;
+        info.append(nameRow,tagWrap,reason);
+        const actionRow=document.createElement('div');actionRow.className='match-action-row';
+        if(data?.member){
+          const detail=document.createElement('button');detail.type='button';detail.className='member-profile-button';
+          detail.textContent='팀원 상세 보기 ↗';
+          detail.setAttribute('aria-label',`${data.member.nickname} 팀원 상세 프로필 보기`);
+          detail.addEventListener('click',()=>openMemberProfile(contest,teammateCache.get(key),detail));
+          actionRow.append(detail);
+        }
+        if (data?.member && isRealInviteAllowed(data.member)) {
+          // Real opted-in users: this button sends a real Supabase request via the existing API.
+          const invite=document.createElement('button');invite.type='button';invite.className='match-request-invite';
+          const previousStatus=sentRequestStatus.get(invitationKey(data.member,contest));
+          invite.textContent=previousStatus?requestButtonLabel(previousStatus):'매칭 요청';
+          invite.disabled=!!previousStatus;
+          invite.setAttribute('aria-label',`${data.member.nickname}님에게 ${contest.title} 팀원 매칭 요청`);
+          invite.addEventListener('click',async()=>{
+            try{if(await sendMemberInvitation(data.member,contest,invite))renderContests();}
+            catch(err){alert(err.message);}
+          });
+          actionRow.append(invite);
+        }else if(data?.member?.is_synthetic){
+          // Mock only: clickable but never calls /api/team/request or touches Supabase.
+          const invite=document.createElement('button');invite.type='button';invite.className='match-request-invite demo-invite';
+          const exists=demoInvitationExists(data.member,contest);
+          invite.textContent=exists?'시연 요청 완료 ✓':'매칭 요청 (시연)';
+          invite.disabled=exists;
+          invite.title='가상 팀원 목업 요청 · 실제 전송/알림 없음';
+          invite.setAttribute('aria-label',`${data.member.nickname}님에게 시연용 매칭 요청`);
+          invite.addEventListener('click',()=>{
+            const sent=sendDemoInvitation(data.member,contest,invite);
+            if(sent)renderContests();
+          });
+          actionRow.append(invite);
+        }else if(data?.member){
+          const invite=document.createElement('button');invite.type='button';invite.className='match-request-invite';
+          invite.textContent='실제 매칭 동의 필요';invite.disabled=true;
+          invite.title='양쪽 회원의 매칭 참여 동의가 있어야 실제 요청할 수 있어요.';
+          actionRow.append(invite);
+        }
+        // Buttons sit in their own centered footer row, aligned across all cards.
+        strip.append(actionRow);
+        const scoreBox=document.createElement('div');scoreBox.className='match-score-box'+(!data?.member?' pending':'');
+        const scoreLabel=document.createElement('span');scoreLabel.className='score-type';scoreLabel.textContent='궁합 점수';
+        const scoreNumber=document.createElement('strong');scoreNumber.textContent=data?.member ? `${data.score}점` : '—';
+        const scoreCaption=document.createElement('span');scoreCaption.className='score-caption';scoreCaption.textContent=data?.source==='ai'?'AI 선정 · 예비점수':'규칙 기반 추정치';
+        scoreBox.append(scoreLabel,scoreNumber,scoreCaption);
+        main.append(avatar,info);
+        // Main profile and score share the first row; action row spans the panel's full width.
+        strip.prepend(main,scoreBox);
+        return strip;
+      }
+      function renderContests() {
+        const q=trim($('contestSearch').value).toLocaleLowerCase('ko');
+        const items=realContests ?? sampleContests;
+        const visible=items.filter(c=>(contestCategory==='전체'||c.category===contestCategory)&&
+          [c.title,c.description,c.category,c.campus||'',...(c.roles||[])].join(' ').toLocaleLowerCase('ko').includes(q));
+        const scored=visible.map((c,index)=>({contest:c,index,date:normalizeDate(c.date),match:scoreContest(c,state.competencies)}));
+        const hasCompetencies=state.competencies.some(skill=>trim(skill?.name));
+        const ranked=hasCompetencies?scored.filter(e=>e.match.score>0):scored;
+        const excludedCount=scored.length-ranked.length;
+        ranked.sort((a,b)=>contestSort==='related'?
+          b.match.score-a.match.score||b.date-a.date||a.index-b.index:
+          b.date-a.date||a.index-b.index);
+        const shown=contestExpanded?ranked:ranked.slice(0,contestInitialLimit);
+        const grid=$('contestGrid');grid.replaceChildren();
+        for(const entry of shown){
+          const c=entry.contest;
+          const real=realContests!==null && !c.is_sample;
+          const card=document.createElement('article');card.className='contest-card';
+          const top=document.createElement('div');top.className='contest-card-top';
+          const category=document.createElement('span');category.className='contest-card-category';category.textContent=c.category||'기타';
+          const marker=document.createElement('span');marker.className='contest-sample';marker.textContent=real?(c.campus||'강원대학교'):'샘플 공모전';
+          top.append(category,marker);
+          const title=document.createElement('h3');title.textContent=c.title||'제목 없음';
+          card.append(top,title);
+          if(hasCompetencies){
+            const relevance=document.createElement('div');relevance.className='contest-relevance';
+            const score=document.createElement('span');score.className='contest-relevance-score'+(entry.match.score<35?' low':'');
+            score.textContent=`연관도 ${entry.match.score}점`;
+            const reason=document.createElement('span');reason.className='contest-relevance-reason';reason.textContent=entry.match.reason;
+            relevance.append(score,reason);
+            card.dataset.matchScore=String(entry.match.score);
+            card.append(relevance);
+          }
+          if(hasCompetencies){
+            card.append(teammateMatchElement(c));
+          }else{
+            const placeholder=document.createElement('div');placeholder.className='match-strip';placeholder.textContent='AI 역량 분석 완료 후 1순위 추천 팀원과 궁합점수가 표시돼요.';
+            card.append(placeholder);
+          }
+          const note=document.createElement('p');note.className='match-demo-note';note.textContent=teammateCache.get(contestMatchKey(c))?.member && !teammateCache.get(contestMatchKey(c)).member.is_synthetic ? '※ 매칭 동의한 실제 회원 · 궁합은 AI/규칙 기반 추정이며 검증된 점수가 아님' : '※ 실제 참여자가 부족하면 가상 100명으로 시연 · 실사용자 아님';card.append(note);
+          const bottom=document.createElement('div');bottom.className='contest-card-bottom';
+          const when=document.createElement('span');when.textContent=real?`등록 ${c.date||'미확인'} · 마감일 미확인`:`샘플 등록일 ${c.date||'미설정'} · 실제 모집 정보 아님`;
+          bottom.append(when);
+          if(real && /^https:\/\/www\.kangwon\.ac\.kr\/ko\/bbs\/719\/detail\.do\?pstSn=\d+$/.test(c.url||'')){
+            const link=document.createElement('a');link.href=c.url;link.target='_blank';link.rel='noopener noreferrer';link.className='contest-origin-link';link.textContent='원문 보기 ↗';
+            bottom.append(link);
+          }else{
+            const button=document.createElement('button');button.type='button';button.className='contest-detail-button';button.textContent='설명 보기 +';button.setAttribute('aria-expanded','false');
+            const panel=document.createElement('div');panel.className='contest-detail-panel';panel.hidden=true;panel.textContent=(c.detail||c.description||'시연용 공모전')+' 실제 공고 연결은 다음 단계에서 추가할 예정이에요.';
+            button.addEventListener('click',()=>{panel.hidden=!panel.hidden;button.setAttribute('aria-expanded',String(!panel.hidden));button.textContent=panel.hidden?'설명 보기 +':'설명 닫기 −';});
+            bottom.append(button);card.append(bottom,panel);grid.append(card);continue;
+          }
+          card.append(bottom);grid.append(card);
+        }
+        $('contestEmpty').hidden=ranked.length>0;
+        $('contestEmpty').textContent=hasCompetencies&&excludedCount>0&&!ranked.length?
+          '현재 핵심역량과 연관 근거가 확인된 공모전이 없어요. 새로고침 후 다시 확인해 보세요.':
+          '검색 결과가 없어요. 다른 키워드를 입력하거나 새로고침해 보세요.';
+        const excludedLabel=excludedCount>0?` · 연관 근거 부족 ${excludedCount}개 제외`:'';
+        $('contestCount').textContent=`${realContests?'강원대학교 공모안내 게시글':'샘플 공모전'} ${ranked.length}개 중 ${shown.length}개 표시 중${excludedLabel} · ${contestSort==='related'?'핵심역량 관련순':'등록일 최신순'}`;
+        const moreBtn=$('moreContestsBtn');
+        moreBtn.hidden=ranked.length<=contestInitialLimit;
+        moreBtn.textContent=contestExpanded?'접기 ↑':`공모전 더보기 +${ranked.length-contestInitialLimit}`;
+        moreBtn.setAttribute('aria-expanded',String(contestExpanded));
+        if(hasCompetencies && shown.length){
+          // 실제 API 호출은 렌더링 이후 비동기로 실행하여 공모전 목록을 즉시 표시합니다.
+          Promise.resolve().then(()=>scheduleTeammates(shown));
+        }
+      }
+      $('moreContestsBtn').addEventListener('click',()=>{
+        contestExpanded=!contestExpanded;
+        renderContests();
+        if (!contestExpanded) $('contestCount').scrollIntoView({block:'nearest',behavior:'smooth'});
+      });
+      function selectSort(mode) {
+        const hint=$('sortHint');
+        if (mode==='related' && !state.competencies.some(skill=>trim(skill?.name))) {
+          hint.hidden=false;
+          hint.textContent='분석된 핵심역량이 없어요. AI 인터뷰와 역량 분석을 완료하면 관련순을 사용할 수 있습니다.';
+          return;
+        }
+        contestSort=mode;
+        contestExpanded=false;
+        for (const [id,value] of [['relatedSortBtn','related'],['newestSortBtn','newest']]) {
+          const button=$(id),active=mode===value;
+          button.classList.toggle('active',active);
+          button.setAttribute('aria-pressed',String(active));
+        }
+        hint.hidden=false;
+        hint.textContent=mode==='related' ?
+          'AI가 분석한 핵심역량 이름·활동 근거와 공고의 제목·분야를 비교한 추정 연관도 순서입니다. 공식 적합성·지원 자격을 뜻하지 않습니다.' :
+          '연관 근거가 확인된 공모전을 게시글 등록일 기준 최신순으로 정렬했습니다. 모집 마감일 순서가 아닙니다.';
+        renderContests();
+      }
+      $('relatedSortBtn').addEventListener('click',()=>selectSort('related'));
+      $('newestSortBtn').addEventListener('click',()=>selectSort('newest'));
+      $('contestSearch').addEventListener('input',()=>{contestExpanded=false;renderContests();});
+      $('contestFilters').addEventListener('click',e=>{
+        const btn=e.target.closest('button[data-category]'); if(!btn)return;
+        contestCategory=btn.dataset.category;
+        contestExpanded=false;
+        $('contestFilters').querySelectorAll('button[data-category]').forEach(b=>{
+          const selected=b===btn;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));
+        });
+        renderContests();
+      });
+      // Supabase 계정 모드: 로그인한 사람의 정보만 보이도록 진입 시 분기.
+      function authScreen(mode) {
+        authMode = mode;
+        $('authLoginTab').classList.toggle('active',mode==='login');
+        $('authSignupTab').classList.toggle('active',mode==='signup');
+        $('authLoginTab').setAttribute('aria-pressed',String(mode==='login'));
+        $('authSignupTab').setAttribute('aria-pressed',String(mode==='signup'));
+        $('authPassword').autocomplete=mode==='login'?'current-password':'new-password';
+        $('authSubmit').textContent=mode==='login'?'로그인 →':'회원가입 →';
+        $('authStatus').textContent=''; $('authStatus').classList.remove('error');
+      }
+      $('authLoginTab').addEventListener('click',()=>authScreen('login'));
+      $('authSignupTab').addEventListener('click',()=>authScreen('signup'));
+      $('authForm').addEventListener('submit',async e=>{
+        e.preventDefault();
+        const button=$('authSubmit');button.disabled=true;
+        $('authStatus').textContent=authMode==='login'?'로그인 중...':'회원가입 요청 중...';
+        try {
+          const data=await apiCall('/api/auth/'+(authMode==='login'?'login':'signup'),'POST',{
+            email:$('authEmail').value.trim(), password:$('authPassword').value
+          });
+          $('authPassword').value='';
+          if(authMode==='signup' && data.confirmation_required){
+            authScreen('login');
+            $('authStatus').textContent='인증 메일을 확인한 뒤 로그인해 주세요. 메일이 오지 않으면 스팸함과 Supabase 이메일 설정을 확인해 주세요.';
+          } else {
+            await initializeAccount();
+          }
+        } catch(err) {$('authStatus').textContent=err.message;$('authStatus').classList.add('error');}
+        finally {button.disabled=false;}
+      });
+      async function initializeAccount(){
+        try {
+          const data=await apiCall('/api/auth/me');
+          cloudMode=!!data.configured; signedIn=!!data.authenticated;
+          if(!cloudMode){
+            setDemoRequestOwner(previewMode?'preview':'local');
+            document.body.classList.remove('auth-gated');
+            $('accountBar').hidden=false;
+            $('accountEmail').textContent='로컬 시연 모드 · 온라인 저장 안 됨';
+            $('logoutBtn').hidden=true;$('deleteDataBtn').hidden=true;
+            $('storageConsent').parentElement.hidden=true;
+            return;
+          }
+          $('storageConsent').parentElement.hidden=false;
+          $('logoutBtn').hidden=false;$('deleteDataBtn').hidden=false;
+          if(!signedIn){
+            setDemoRequestOwner(previewMode?'preview':'guest');
+            currentEmail=''; cachedAnalysis=null;
+            document.body.classList.add('auth-gated');
+            $('accountBar').hidden=true;
+            return;
+          }
+          document.body.classList.remove('auth-gated');
+          $('accountBar').hidden=false;
+          currentEmail=data.user?.email || '';
+          setDemoRequestOwner(previewMode?'preview':(data.user?.id||'member'));
+          $('accountEmail').textContent='로그인 · '+currentEmail;
+          fieldEls.email.value=currentEmail;
+          for(const k of ['nickname','university','major','grade']) fieldEls[k].value=data.profile?.[k]||'';
+          $('storageConsent').checked=!!data.profile;
+          cachedAnalysis=data.analysis||null;
+          $('restoreAnalysisBtn').hidden=!cachedAnalysis;
+          $('experience').value='';
+          try{sessionStorage.removeItem(profileKey);sessionStorage.removeItem(experienceKey);}catch(_){}
+          navigate('Profile','nickname');
+          $('profileStatus').textContent=data.profile?'저장된 기본 정보를 불러왔어요.':'처음 이용하신다면 기본 정보를 입력해 주세요.';
+          await loadMatchSettings();
+        } catch(err) {
+          document.body.classList.add('auth-gated');
+          $('authStatus').textContent='연결 확인 실패: '+err.message;
+          $('authStatus').classList.add('error');
+        }
+      }
+      async function loadMatchSettings() {
+        const panel=$('matchSettings');
+        const requestsPanel=$('matchRequestPanel');
+        if(previewMode){
+          // Offline preview: demo requests are visible but no real member APIs are used.
+          panel.hidden=true;requestsPanel.hidden=false;$('matchPanelsRow').hidden=false;
+          $('refreshMatchRequests').hidden=true;
+          renderMatchRequests();
+          return;
+        }
+        panel.hidden=!cloudMode || !signedIn || previewMode;
+        requestsPanel.hidden=!cloudMode || !signedIn || previewMode;
+        $('matchPanelsRow').hidden=panel.hidden && requestsPanel.hidden;
+        if(panel.hidden)return;
+        $('matchDiagnosticMetrics').hidden=true;
+        $('matchDiagnosticsStatus').textContent='회원 2명 테스트 전에 상태 확인을 눌러 보세요.';
+        $('matchDiagnosticsStatus').classList.remove('error');
+        try{
+          const result=await apiCall('/api/me/matching');
+          userMatchConfigured=true;
+          actualMatchEnabled=!!result.enabled;
+          $('matchParticipation').checked=actualMatchEnabled;
+          const interests=new Set(result.interests||[]);
+          $('matchInterestOptions').querySelectorAll('input').forEach(cb=>{cb.checked=interests.has(cb.value);});
+          $('matchSettingsStatus').textContent=actualMatchEnabled?'실제 회원 매칭에 참여 중이에요. 공개 범위를 위에서 확인할 수 있어요.':'현재 비공개 상태예요. 동의 후 설정을 저장하면 실제 회원 매칭을 시작할 수 있어요.';
+          await loadMatchRequests();
+        }catch(err){
+          userMatchConfigured=false;
+          $('matchSettingsStatus').textContent='매칭 테이블을 읽지 못했어요. matching_migration.sql을 Supabase에서 실행했는지 확인해 주세요.';
+          $('matchSettingsStatus').classList.add('error');
+        }
+      }
+      // Step 16: show received/sent requests separately. All status updates are saved by the
+      // existing server-side Supabase RPC, which enforces the participant's permissions.
+      function renderMatchRequests(){
+        const rows=lastRequestRows;
+        const incoming=rows.filter(row=>row.direction==='received');
+        const outgoing=[...demoSentRequests,...rows.filter(row=>row.direction==='sent')];
+        $('receivedRequestsCount').textContent=`(${incoming.length})`;
+        $('sentRequestsCount').textContent=`(${outgoing.length})`;
+        $('requestPendingReceived').textContent=String(incoming.filter(r=>r.status==='pending').length);
+        $('requestPendingSent').textContent=String(outgoing.filter(r=>r.status==='pending').length);
+        $('requestAcceptedTotal').textContent=String(rows.filter(r=>r.status==='accepted').length);
+        $('matchRequestSummary').hidden=false;
+        $('receivedRequestsTab').setAttribute('aria-pressed',String(requestTab==='received'));
+        $('sentRequestsTab').setAttribute('aria-pressed',String(requestTab==='sent'));
+        const subset=requestTab==='received'?incoming:outgoing;
+        const wrap=$('matchRequestList');wrap.replaceChildren();
+        if(!subset.length){
+          const empty=document.createElement('div');empty.className='match-request-empty';
+          empty.textContent=requestTab==='received'?'아직 받은 매칭 요청이 없어요.':'아직 보낸 매칭 요청이 없어요.';
+          wrap.append(empty);
+          return;
+        }
+        for(const record of subset){
+          const item=document.createElement('article');item.className='match-request-item'+(record.is_demo?' is-demo':'');
+          const header=document.createElement('div');header.className='match-request-item-header';
+          const name=document.createElement('strong');name.textContent=String(record.other_nickname||'비공개 회원');
+          const status=document.createElement('span');status.className='match-request-status '+(record.is_demo?'demo':(requestStatusLabels[record.status]?record.status:''));
+          status.textContent=record.is_demo?'시연용 · 요청 기록':(requestStatusLabels[record.status]||'처리 상태 미확인');
+          header.append(name,status);
+          const contest=document.createElement('p');contest.textContent=`공모전 · ${record.contest_title||'이름 미확인'}`;
+          item.append(header,contest);
+          if(record.is_demo){
+            const note=document.createElement('p');note.className='match-demo-help';
+            note.textContent='가상 팀원과의 목업 요청입니다. 실제 전송·상대 알림·수락은 없으며 이 브라우저 탭에만 저장돼요.';
+            item.append(note);
+          }
+          if(record.created_at){
+            const date=new Date(record.created_at);
+            if(!Number.isNaN(date.getTime())){
+              const when=document.createElement('p');when.className='match-request-date';
+              when.textContent=`요청일 ${date.toLocaleString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}`;
+              item.append(when);
+            }
+          }
+          if(typeof record.message==='string' && record.message.trim()){
+            const message=document.createElement('p');message.className='match-request-msg';
+            message.textContent=`요청 메시지: ${record.message}`;item.append(message);
+          }
+          if(record.status==='accepted'){
+            const note=document.createElement('p');note.className='match-accepted-note';
+            note.textContent='매칭 요청이 수락됐어요. 팀 구성 및 연락 방법은 서로 협의해 주세요. 이메일·연락처는 자동 공개되지 않아요.';
+            item.append(note);
+          }
+          if(record.status==='declined' && requestTab==='sent'){
+            const note=document.createElement('p');note.textContent='상대방이 요청을 거절했어요. 다른 팀원을 추천받을 수 있어요.';item.append(note);
+          }
+          if(record.is_demo){
+            const actions=document.createElement('div');actions.className='match-request-actions';
+            const erase=document.createElement('button');erase.type='button';erase.className='demo-delete';
+            erase.textContent='시연 기록 지우기';
+            erase.addEventListener('click',()=>{
+              demoSentRequests=demoSentRequests.filter(r=>r.id!==record.id);
+              saveDemoSentRequests();
+              renderMatchRequests();renderContests();
+            });
+            actions.append(erase);item.append(actions);
+          }
+          if(!record.is_demo && record.status==='pending'){
+            const actions=document.createElement('div');actions.className='match-request-actions';
+            const choices=record.direction==='received'?[['accepted','수락'],['declined','거절']]:[['cancelled','요청 취소']];
+            for(const [action,label] of choices){
+              const button=document.createElement('button');button.type='button';button.textContent=label;
+              if(action==='declined')button.classList.add('decline');
+              if(action==='cancelled')button.classList.add('cancel');
+              button.addEventListener('click',async()=>{
+                if(action==='accepted'&&!confirm(`${record.other_nickname||'상대 회원'}님의 매칭 요청을 수락할까요? 연락처는 자동 공개되지 않아요.`))return;
+                if(action==='declined'&&!confirm('이 매칭 요청을 거절할까요?'))return;
+                if(action==='cancelled'&&!confirm('보낸 매칭 요청을 취소할까요?'))return;
+                actions.querySelectorAll('button').forEach(btn=>btn.disabled=true);
+                const feedback=$('matchRequestFeedback');feedback.textContent='요청을 처리하고 있어요…';feedback.classList.remove('error');
+                try{
+                  await apiCall('/api/team/respond','POST',{request_id:record.id,action});
+                  const words={accepted:'매칭 요청을 수락했어요.',declined:'매칭 요청을 거절했어요.',cancelled:'매칭 요청을 취소했어요.'};
+                  await loadMatchRequests({feedback:words[action]});
+                }catch(err){
+                  actions.querySelectorAll('button').forEach(btn=>btn.disabled=false);
+                  feedback.textContent=err.message||'요청을 처리하지 못했어요.';feedback.classList.add('error');
+                }
+              });
+              actions.append(button);
+            }
+            item.append(actions);
+          }
+          wrap.append(item);
+        }
+      }
+      async function loadMatchRequests({feedback=''}={}){
+        if(!cloudMode || !signedIn || previewMode)return;
+        if(requestLoading)return;
+        requestLoading=true;
+        const button=$('refreshMatchRequests');button.disabled=true;
+        try{
+          const data=await apiCall('/api/me/requests');
+          lastRequestRows=Array.isArray(data.requests)?data.requests:[];
+          // Database uniqueness preserves request history for each member + contest;
+          // even declined/cancelled requests cannot be re-sent without a separate policy.
+          invitedMatches.clear();sentRequestStatus.clear();
+          for(const record of lastRequestRows){
+            if(record.direction==='sent' && record.recipient_id && record.contest_id){
+              const key=`${record.recipient_id}|${record.contest_id}`;
+              invitedMatches.add(key);
+              sentRequestStatus.set(key,record.status);
+            }
+          }
+          renderMatchRequests();
+          $('matchRequestFeedback').classList.remove('error');
+          $('matchRequestFeedback').textContent=feedback;
+          // Update request badges/buttons on existing contest cards.
+          renderContests();
+        }catch(err){
+          $('matchRequestFeedback').textContent='요청 목록을 불러오지 못했어요: '+err.message;
+          $('matchRequestFeedback').classList.add('error');
+          if(demoSentRequests.length){renderMatchRequests();}
+          if(!lastRequestRows.length && !demoSentRequests.length){
+            const wrap=$('matchRequestList');wrap.replaceChildren();
+            const empty=document.createElement('div');empty.className='match-request-empty';
+            empty.textContent='요청 목록을 불러오지 못했어요. 새로고침을 눌러 다시 확인해 주세요.';
+            wrap.append(empty);
+          }
+        }finally{requestLoading=false;button.disabled=false;}
+      }
+      $('receivedRequestsTab').addEventListener('click',()=>{requestTab='received';renderMatchRequests();});
+      $('sentRequestsTab').addEventListener('click',()=>{requestTab='sent';renderMatchRequests();});
+      $('saveMatchSettings').addEventListener('click',async()=>{
+        const button=$('saveMatchSettings');button.disabled=true;
+        try{
+          const result=await apiCall('/api/me/matching','POST',{
+            enabled:$('matchParticipation').checked,
+            interests:[...$('matchInterestOptions').querySelectorAll('input:checked')].map(el=>el.value)
+          });
+          actualMatchEnabled=!!result.result.enabled;
+          $('matchDiagnosticMetrics').hidden=true;
+          $('matchDiagnosticsStatus').textContent='참여 설정이 바뀌었어요. 상태 확인을 다시 눌러 주세요.';
+          const message=actualMatchEnabled?'참여 설정을 저장했어요. 실제 회원 후보를 우선 추천해요.':'매칭 참여를 철회했어요. 매칭 공개 프로필과 관련 요청이 삭제됐어요.';
+          $('matchSettingsStatus').textContent=message;
+          $('matchSettingsStatus').classList.remove('error');
+          teammateCache.clear();teammatePending.clear();teammateAiPending.clear();matchVersion++;
+          renderContests();await loadMatchRequests();
+        }catch(err){$('matchSettingsStatus').textContent=err.message;$('matchSettingsStatus').classList.add('error');}
+        finally{button.disabled=false;}
+      });
+      // Step 13: read-only diagnostics. No API secrets or personal data are printed.
+      async function checkMatchingDiagnostics(){
+        const button=$('checkMatchingBtn'), notice=$('matchDiagnosticsStatus'), metrics=$('matchDiagnosticMetrics');
+        button.disabled=true;notice.classList.remove('error');notice.textContent='매칭 상태를 확인하고 있어요...';
+        try{
+          const d=await apiCall('/api/me/matching/diagnostics');
+          $('diagJoined').textContent=d.participating?'참여 중':'미동의';
+          $('diagCandidateCount').textContent=String(d.other_candidate_count)+(d.other_candidate_count_capped?'+':'')+'명';
+          $('diagSent').textContent=d.request_counts.sent+'건';
+          $('diagReceived').textContent=d.request_counts.received+'건';
+          metrics.hidden=false;
+          let tip='';
+          if(!d.participating)tip='먼저 왼쪽에서 실제 매칭에 동의하고 저장해 주세요.';
+          else if(d.other_candidate_count===0)tip='아직 동의한 다른 실제 회원이 없어요. 두 번째 계정에서 AI 역량 분석 및 참여 동의를 완료해 주세요.';
+          else tip='다른 실제 회원 후보가 있어요. 아래 공모전의 실제 참여 회원 카드에서 매칭 요청을 시도할 수 있어요.';
+          if(d.demo_fallback_enabled)tip+=' 현재 가상 시연 대체가 켜져 있지만 실제 후보 수에는 포함하지 않았어요.';
+          notice.textContent=tip;
+        }catch(err){metrics.hidden=true;notice.classList.add('error');notice.textContent='상태 확인 실패: '+err.message;}
+        finally{button.disabled=false;}
+      }
+      $('checkMatchingBtn').addEventListener('click',checkMatchingDiagnostics);
+      $('refreshMatchRequests').addEventListener('click',loadMatchRequests);
+      $('restoreAnalysisBtn').addEventListener('click',()=>{
+        if(cachedAnalysis){renderResults(cachedAnalysis);$('storedAnalysisStatus').textContent='✓ 내 계정에 저장된 AI 핵심역량을 불러왔어요.';navigate('Result');}
+      });
+      $('logoutBtn').addEventListener('click',async()=>{
+        if(!confirm('현재 계정에서 로그아웃할까요?'))return;
+        try{await apiCall('/api/auth/logout','POST',{});location.href='/';}
+        catch(err){alert(err.message);}
+      });
+      $('deleteDataBtn').addEventListener('click',async()=>{
+        if(!confirm('저장된 기본 프로필과 모든 경험·역량 분석 결과를 영구 삭제할까요? 계정은 유지돼요.'))return;
+        try {
+          await apiCall('/api/me/data','DELETE');
+          cachedAnalysis=null;state.competencies=[];
+          for(const k of ['nickname','university','major','grade'])fieldEls[k].value='';
+          $('storageConsent').checked=false;$('restoreAnalysisBtn').hidden=true;
+          navigate('Profile');alert('저장된 프로필과 분석 결과를 삭제했어요.');
+        } catch(err){alert(err.message);}
+      });
+      initializeAccount();
+
+      // 디자인 확인용: /?preview=contests 에 접속하면 API 키 없이 목록 화면만 볼 수 있습니다.
+      if (new URLSearchParams(location.search).get('preview') === 'contests') {
+        // Preview only: easy way to test both sorting modes before using the OpenAI API.
+        state.preview_demo=true;
+        state.competencies=[
+          {name:'Python 프로그래밍 능력',evidence:'Python으로 데이터를 정리함',evidence_level:'명확'},
+          {name:'데이터 분석 능력',evidence:'수업에서 데이터 가공 경험',evidence_level:'부분적'},
+          {name:'서비스 기획 능력',evidence:'팀 기획안을 구성한 경험',evidence_level:'부분적'},
+          {name:'UI/UX 디자인 역량',evidence:'디자인 시안을 만든 경험',evidence_level:'부분적'},
+          {name:'지역 조사 능력',evidence:'지역 봉사활동 자료를 정리함',evidence_level:'부분적'}
+        ];
+        setDemoRequestOwner('preview');
+        $('matchSettings').hidden=true;
+        $('matchRequestPanel').hidden=false;
+        $('matchPanelsRow').hidden=false;
+        $('refreshMatchRequests').hidden=true;
+        renderMatchRequests();
+        updateContestProfile();renderContests();navigate('Contest','contestSearch');loadCachedContests();
+      }
+    })();
+  </script>
+</body>
+</html>
